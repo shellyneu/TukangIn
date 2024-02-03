@@ -64,3 +64,7 @@ yarn-error.log
 
 # testing
 /coverage
+
+# prettier eslint
+.eslintrc.js
+.prettierrc.js
