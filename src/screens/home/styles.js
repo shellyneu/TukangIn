@@ -30,6 +30,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 8,
     marginBottom: 24,
+    alignItems: 'flex-end',
   },
   sectionTitle: {
     flexDirection: 'row',

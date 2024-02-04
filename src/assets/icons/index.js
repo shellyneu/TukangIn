@@ -14,8 +14,10 @@ import IcNotification from './ic-notification.svg'
 //home: category
 import IcCompass from './ic-compass.svg'
 import IcDroplets from './ic-droplets.svg'
+import IcTearDrop from './ic-teardrop.svg'
 import IcPalette from './ic-palette.svg'
 import IcGridLayout from './ic-gridlayout.svg'
+import IcCompassTwo from './ic-compass-two.svg'
 
 //home: best craftman
 import IcLocation from './ic-location.svg'
@@ -52,6 +54,7 @@ import IcUploadPhoto from './ic-upload-photo.svg'
 import IcPrice from './ic-price.svg'
 import IcHourglass from './ic-hourglass.svg'
 import IcCheckCircle from './ic-check-circle.svg'
+import IcDotGrey from './ic-dot-grey.svg'
 
 export {
   IcMailBox,
@@ -89,4 +92,7 @@ export {
   IcHourglass,
   IcCheckCircle,
   IcNotification,
+  IcDotGrey,
+  IcTearDrop,
+  IcCompassTwo,
 }
