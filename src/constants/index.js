@@ -5,9 +5,10 @@ export const Fonts = {
   MEDIUM: 'Inter-Medium',
   SEMIBOLD: 'Inter-SemiBold',
   BOLD: 'Inter-Bold',
-};
+}
 
 export const FontSize = {
+  dp_8: 8,
   dp_10: 10,
   dp_12: 12,
   dp_16: 16,
@@ -20,7 +21,7 @@ export const FontSize = {
   dp_28: 28,
   dp_30: 30,
   dp_32: 32,
-};
+}
 
 export const Color = {
   PRIMARY: '#4388BB',
@@ -29,4 +30,4 @@ export const Color = {
   GREYTWO: '#EEEEEE',
   BLACK: '#000000',
   WHITE: '#FFFFFF',
-};
+}
