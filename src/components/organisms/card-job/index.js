@@ -21,7 +21,7 @@ const CardJob = ({
   onPressSave,
 }) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image source={imgSource} style={styles.img} />
       <View>
         <View style={styles.headerBox}>
@@ -39,7 +39,7 @@ const CardJob = ({
           <SubmissionsBox countSubmit={countSubmit} />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 

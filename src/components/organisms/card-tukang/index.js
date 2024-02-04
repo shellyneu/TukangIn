@@ -1,4 +1,4 @@
-import {View, Text, StyleSheet, Image} from 'react-native'
+import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
 import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {ImgCraftmanOne} from '../../../assets/images'
@@ -6,7 +6,7 @@ import {LocationBox, RatingsBox} from '../..'
 
 const CardTukang = ({imgSource, name, skillCount, location, rate}) => {
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container}>
       <Image source={imgSource} style={styles.image} />
       <View style={styles.descBox}>
         <View style={{gap: 3}}>
@@ -21,7 +21,7 @@ const CardTukang = ({imgSource, name, skillCount, location, rate}) => {
           <RatingsBox rate={rate} />
         </View>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
