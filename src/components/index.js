@@ -7,6 +7,9 @@ import CardJob from './organisms/card-job'
 import CardTukang from './organisms/card-tukang'
 import TabBar from './molecules/tab-bar'
 import SubmissionsBox from './atomics/submissions-box'
+import HeaderSecondary from './molecules/header-secondary'
+import Rupiah from './atomics/rupiah'
+import SkillSet from './molecules/skills-set'
 
 export {
   NotificationIcon,
@@ -18,4 +21,7 @@ export {
   CardTukang,
   TabBar,
   SubmissionsBox,
+  HeaderSecondary,
+  Rupiah,
+  SkillSet,
 }

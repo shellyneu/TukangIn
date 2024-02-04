@@ -4,9 +4,9 @@ import {FontSize, Fonts, Color} from '../../../constants'
 import {ImgCraftmanOne} from '../../../assets/images'
 import {LocationBox, RatingsBox} from '../..'
 
-const CardTukang = ({imgSource, name, skillCount, location, rate}) => {
+const CardTukang = ({imgSource, name, skillCount, location, rate, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={imgSource} style={styles.image} />
       <View style={styles.descBox}>
         <View style={{gap: 3}}>
