@@ -56,6 +56,9 @@ import IcHourglass from './ic-hourglass.svg'
 import IcCheckCircle from './ic-check-circle.svg'
 import IcDotGrey from './ic-dot-grey.svg'
 
+// detail tukang
+import IcLocationBig from './ic-location-big.svg'
+
 export {
   IcMailBox,
   IcChevronLeft,
@@ -95,4 +98,5 @@ export {
   IcDotGrey,
   IcTearDrop,
   IcCompassTwo,
+  IcLocationBig,
 }

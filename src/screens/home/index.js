@@ -37,17 +37,18 @@ import {
   LocationBox,
   RatingsBox,
   SearchBar,
+  SkillSet,
   TabBar,
 } from '../../components'
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState(1)
   const [savePressed, setSavePressed] = useState(true)
 
   const dataTukang = [
     {
       id: 1,
-      nama: 'Andika',
+      nama: 'Andika Darojat',
       skillCount: 12,
       location: 'Purwokerto',
       rate: 4.9,
@@ -99,6 +100,9 @@ const HomeScreen = () => {
       skillCount={item.skillCount}
       location={item.location}
       rate={item.rate}
+      onPress={() => {
+        navigation.navigate('DetailTukang')
+      }}
     />
   )
 

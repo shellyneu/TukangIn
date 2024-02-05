@@ -21,6 +21,9 @@ import {
   IcProfileFilled,
 } from '../assets/icons'
 
+// Details Screen
+import DetailTukang from '../screens/detailTukang'
+
 // Screens Name
 const homeName = 'Beranda'
 const simpanName = 'Simpan'
@@ -123,6 +126,13 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Profile'
           component={ProfileScreen}
+          options={{headerShown: false}}
+        />
+
+        {/* Details Screen */}
+        <Stack.Screen
+          name='DetailTukang'
+          component={DetailTukang}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

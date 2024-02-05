@@ -1,13 +1,13 @@
 import {View, Text, StyleSheet} from 'react-native'
 import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
-import {IcLocation} from '../../../assets/icons'
+import {IcLocation, IcLocationBig} from '../../../assets/icons'
 
-const LocationBox = ({location}) => {
+const LocationBox = ({location, isPhaseTwo}) => {
   return (
     <View style={styles.container}>
-      <IcLocation />
-      <Text style={styles.text}>{location}</Text>
+      {isPhaseTwo ? <IcLocationBig /> : <IcLocation />}
+      <Text style={isPhaseTwo ? styles.textBig : styles.text}>{location}</Text>
     </View>
   )
 }
@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
   container: {flexDirection: 'row', gap: 4, alignItems: 'center'},
   text: {
     fontSize: FontSize.dp_12,
+    fontFamily: Fonts.REGULAR,
+    color: Color.GREYONE,
+  },
+  textBig: {
+    fontSize: FontSize.dp_16,
     fontFamily: Fonts.REGULAR,
     color: Color.GREYONE,
   },
