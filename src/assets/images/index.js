@@ -1,34 +1,36 @@
 /* eslint-disable prettier/prettier */
-import ImgSplash from './img-splash.png';
-import ImgUser from './img-user.png';
+import ImgSplash from './img-splash.png'
+import ImgUser from './img-user.png'
 
 //home: best craftman card
-import ImgCraftmanOne from './img-craftman-one.png';
-import ImgCraftmanTwo from './img-craftman-two.png';
+import ImgCraftmanOne from './img-craftman-one.png'
+import ImgCraftmanTwo from './img-craftman-two.png'
 
 //home: job card
-import ImgJobOne from './img-job-one.png';
-import ImgJobTwo from './img-job-two.png';
+import ImgJobOne from './img-job-one.png'
+import ImgJobTwo from './img-job-two.png'
 
 //search: job card
-import ImgSearchJobOne from './img-search-job-one.png';
-import ImgSearchJobTwo from './img-search-job-two.png';
+import ImgSearchJobOne from './img-search-job-one.png'
+import ImgSearchJobTwo from './img-search-job-two.png'
+import ImgKeran from './img-keran.png'
+import ImgKeramik from './img-keramik.png'
 
 //search: craftman card
-import ImgSearchCraftmanOne from './img-search-craftman-one.png';
-import ImgSearchCraftmanTwo from './img-search-craftman-two.png';
+import ImgSearchCraftmanOne from './img-search-craftman-one.png'
+import ImgSearchCraftmanTwo from './img-search-craftman-two.png'
 
 //detail craftman
-import ImgProfileOne from './img-profile-one.png';
-import ImgProfileTwo from './img-profile-two.png';
-import ImgProfileThree from './img-profile-two.png';
+import ImgProfileOne from './img-profile-one.png'
+import ImgProfileTwo from './img-profile-two.png'
+import ImgProfileThree from './img-profile-two.png'
 
 //detail skill
-import ImgSkillOne from './img-skill-one.png';
-import ImgSKillTwo from './img-skill-two.png';
+import ImgSkillOne from './img-skill-one.png'
+import ImgSKillTwo from './img-skill-two.png'
 
 //detail job
-import ImgDetailJob from './img-detail-job.png';
+import ImgDetailJob from './img-detail-job.png'
 
 export {
   ImgSplash,
@@ -47,4 +49,6 @@ export {
   ImgSkillOne,
   ImgSKillTwo,
   ImgDetailJob,
-};
+  ImgKeran,
+  ImgKeramik,
+}

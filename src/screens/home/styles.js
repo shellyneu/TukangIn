@@ -6,7 +6,7 @@ export default StyleSheet.create({
     backgroundColor: Color.BGSCREEN,
     flex: 1,
     paddingHorizontal: 16,
-    paddingTop: 12,
+    paddingTop: 15,
   },
   header: {
     flexDirection: 'row',
@@ -30,6 +30,7 @@ export default StyleSheet.create({
     justifyContent: 'space-between',
     paddingHorizontal: 8,
     marginBottom: 24,
+    alignItems: 'flex-end',
   },
   sectionTitle: {
     flexDirection: 'row',
