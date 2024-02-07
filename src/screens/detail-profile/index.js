@@ -2,12 +2,12 @@ import {View, Text} from 'react-native'
 import React from 'react'
 import styles from './styles'
 
-const EditProfileScreen = () => {
+const DetailProfileScreen = () => {
   return (
     <View style={styles.mainBody}>
-      <Text>EditProfileScreen</Text>
+      <Text>DetailProfileScreen</Text>
     </View>
   )
 }
 
-export default EditProfileScreen
+export default DetailProfileScreen

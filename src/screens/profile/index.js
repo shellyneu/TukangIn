@@ -15,7 +15,7 @@ import {
 import {ImgUser} from '../../assets/images'
 import {ItemProfile} from '../../components'
 
-const ProfileScreen = ({onPress}) => {
+const ProfileScreen = ({navigation}) => {
   return (
     <View style={styles.mainBody}>
       {/* TOP */}
@@ -28,13 +28,13 @@ const ProfileScreen = ({onPress}) => {
       </View>
 
       {/* HEADER */}
-      <TouchableOpacity style={styles.header}>
+      <View style={styles.header}>
         <Image source={ImgUser} style={styles.photoProfile} />
         <View style={styles.userProfile}>
           <Text style={styles.userName}>Agus Setiawan</Text>
           <Text style={styles.userPhone}>+62 896892876</Text>
         </View>
-      </TouchableOpacity>
+      </View>
 
       {/* ACCOUNT LIST */}
       <View style={styles.list}>
@@ -42,12 +42,12 @@ const ProfileScreen = ({onPress}) => {
         <ItemProfile
           IconComponent={IcUser}
           text={'Informasi Pribadi'}
-          onPress={''}
+          onPress={() => navigation.navigate('DetailProfile')}
         />
         <ItemProfile
           IconComponent={IcAsCraftman}
           text={'Sebagai Tukang'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
       </View>
 
@@ -57,22 +57,22 @@ const ProfileScreen = ({onPress}) => {
         <ItemProfile
           IconComponent={IcJobPost}
           text={'Postingan Pekerjaan'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
         <ItemProfile
           IconComponent={IcNotification}
           text={'Notifikasi'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
         <ItemProfile
           IconComponent={IcHelpCenter}
           text={'Pusat Bantuan'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
         <ItemProfile
           IconComponent={IcLanguage}
           text={'Bahasa (Mendatang)'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
       </View>
 
@@ -82,7 +82,7 @@ const ProfileScreen = ({onPress}) => {
         <ItemProfile
           IconComponent={IcDeleteAccount}
           text={'Hapus Akun'}
-          onPress={''}
+          onPress={() => navigation.navigate('')}
         />
         <TouchableOpacity style={styles.logout}>
           <IcLogout />
