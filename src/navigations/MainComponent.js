@@ -10,6 +10,7 @@ import HomeScreen from '../screens/home'
 import SimpanScreen from '../screens/simpan'
 import OrderScreen from '../screens/order'
 import ProfileScreen from '../screens/profile'
+import DetailProfileScreen from '../screens/detail-profile'
 import {
   IcHome,
   IcHomeFilled,
@@ -126,6 +127,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Profile'
           component={ProfileScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='DetailProfile'
+          component={DetailProfileScreen}
           options={{headerShown: false}}
         />
 

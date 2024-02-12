@@ -56,6 +56,16 @@ import IcHourglass from './ic-hourglass.svg'
 import IcCheckCircle from './ic-check-circle.svg'
 import IcDotGrey from './ic-dot-grey.svg'
 
+//profile
+import IcUser from './ic-user.svg'
+import IcAsCraftman from './ic-image-user.svg'
+import IcJobPost from './ic-briefcase.svg'
+import IcHelpCenter from './ic-question.svg'
+import IcLanguage from './ic-globe.svg'
+import IcDeleteAccount from './ic-user-x.svg'
+import IcLogout from './ic-logout.svg'
+import IcChevronRight from './ic-chevron-right.svg'
+
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
 
@@ -95,6 +105,14 @@ export {
   IcHourglass,
   IcCheckCircle,
   IcNotification,
+  IcUser,
+  IcAsCraftman,
+  IcJobPost,
+  IcHelpCenter,
+  IcLanguage,
+  IcDeleteAccount,
+  IcLogout,
+  IcChevronRight,
   IcDotGrey,
   IcTearDrop,
   IcCompassTwo,
