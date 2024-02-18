@@ -11,6 +11,7 @@ import SubmissionsBox from './atomics/submissions-box'
 import HeaderSecondary from './molecules/header-secondary'
 import Rupiah from './atomics/rupiah'
 import SkillSet from './molecules/skills-set'
+import ItemInput from './molecules/item-input'
 
 export {
   NotificationIcon,
@@ -26,4 +27,5 @@ export {
   HeaderSecondary,
   Rupiah,
   SkillSet,
+  ItemInput,
 }
