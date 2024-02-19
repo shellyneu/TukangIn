@@ -1,6 +1,5 @@
 import {StyleSheet, Text, TouchableOpacity, View} from 'react-native'
 import React from 'react'
-import {IcCompassBlue} from '../../../assets/icons'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {Rupiah} from '../..'
 
