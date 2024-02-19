@@ -1,7 +1,7 @@
 import {View, Text, TextInput, TouchableOpacity} from 'react-native'
 import React from 'react'
 import styles from './styles'
-import {ButtonMain, HeaderSecondary} from '../../components'
+import {ButtonMain, HeaderSecondary, PhotoInput} from '../../components'
 import {IcFilePlus} from '../../assets/icons'
 
 const VerificationScreen = ({navigation}) => {
@@ -31,12 +31,8 @@ const VerificationScreen = ({navigation}) => {
       </View>
 
       {/* SECTION THREE */}
-      <View style={{paddingTop: 18, gap: 14}}>
-        <Text style={styles.card}>Kartu Tanda Penduduk</Text>
-        <TouchableOpacity style={styles.upload}>
-          <IcFilePlus />
-          <Text style={styles.text}>Upload File</Text>
-        </TouchableOpacity>
+      <View style={{paddingTop: 18}}>
+        <PhotoInput />
       </View>
 
       <View style={{flex: 1, justifyContent: 'flex-end'}}>

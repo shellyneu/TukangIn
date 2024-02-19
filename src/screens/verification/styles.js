@@ -36,20 +36,4 @@ export default StyleSheet.create({
     fontFamily: Fonts.MEDIUM,
     color: Color.BLACK,
   },
-  upload: {
-    color: Color.BLACK,
-    borderRadius: 30,
-    borderWidth: 1,
-    borderColor: Color.PRIMARY,
-    backgroundColor: Color.WHITE,
-    flexDirection: 'row',
-    gap: 12,
-    justifyContent: 'center',
-    paddingVertical: 12,
-  },
-  text: {
-    fontSize: FontSize.dp_18,
-    fontFamily: Fonts.MEDIUM,
-    color: Color.PRIMARY,
-  },
 })

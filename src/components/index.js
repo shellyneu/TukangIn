@@ -15,6 +15,7 @@ import ItemInput from './molecules/item-input'
 import JobSet from './molecules/job-set'
 import ListJob from './atomics/list-job'
 import ButtonMain from './atomics/button-main'
+import PhotoInput from './molecules/photo-input'
 
 export {
   NotificationIcon,
@@ -34,4 +35,5 @@ export {
   JobSet,
   ListJob,
   ButtonMain,
+  PhotoInput,
 }
