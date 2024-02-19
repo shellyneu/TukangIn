@@ -12,6 +12,9 @@ import HeaderSecondary from './molecules/header-secondary'
 import Rupiah from './atomics/rupiah'
 import SkillSet from './molecules/skills-set'
 import ItemInput from './molecules/item-input'
+import JobSet from './molecules/job-set'
+import ListJob from './atomics/list-job'
+import ButtonMain from './atomics/button-main'
 
 export {
   NotificationIcon,
@@ -28,4 +31,7 @@ export {
   Rupiah,
   SkillSet,
   ItemInput,
+  JobSet,
+  ListJob,
+  ButtonMain,
 }
