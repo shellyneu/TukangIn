@@ -65,6 +65,9 @@ import IcLanguage from './ic-globe.svg'
 import IcDeleteAccount from './ic-user-x.svg'
 import IcLogout from './ic-logout.svg'
 import IcChevronRight from './ic-chevron-right.svg'
+import IcEdit from './ic-edit.svg'
+import IcRisk from './ic-risk.svg'
+import IcFilePlus from './ic-file-plus.svg'
 
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
@@ -117,4 +120,7 @@ export {
   IcTearDrop,
   IcCompassTwo,
   IcLocationBig,
+  IcEdit,
+  IcRisk,
+  IcFilePlus,
 }

@@ -47,7 +47,7 @@ const ProfileScreen = ({navigation}) => {
         <ItemProfile
           IconComponent={IcAsCraftman}
           text={'Sebagai Tukang'}
-          onPress={() => navigation.navigate('')}
+          onPress={() => navigation.navigate('AsCraftman')}
         />
       </View>
 
