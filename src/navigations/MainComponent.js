@@ -25,6 +25,7 @@ import {
 // Details Screen
 import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
+import VerificationScreen from '../screens/verification'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -143,6 +144,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='AsCraftman'
           component={AsCraftman}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Verification'
+          component={VerificationScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
