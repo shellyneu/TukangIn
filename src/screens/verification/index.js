@@ -1,7 +1,7 @@
 import {View, Text, TextInput, TouchableOpacity} from 'react-native'
 import React from 'react'
 import styles from './styles'
-import {HeaderSecondary} from '../../components'
+import {ButtonMain, HeaderSecondary} from '../../components'
 import {IcFilePlus} from '../../assets/icons'
 
 const VerificationScreen = ({navigation}) => {
@@ -37,6 +37,10 @@ const VerificationScreen = ({navigation}) => {
           <IcFilePlus />
           <Text style={styles.text}>Upload File</Text>
         </TouchableOpacity>
+      </View>
+
+      <View style={{flex: 1, justifyContent: 'flex-end'}}>
+        <ButtonMain text={'Ajukan Diri'} />
       </View>
     </View>
   )
