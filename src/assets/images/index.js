@@ -32,6 +32,9 @@ import ImgSKillTwo from './img-skill-two.png'
 //detail job
 import ImgDetailJob from './img-detail-job.png'
 
+//profile
+import ImgPostJob from './img-post-job.png'
+
 export {
   ImgSplash,
   ImgUser,
@@ -51,4 +54,5 @@ export {
   ImgDetailJob,
   ImgKeran,
   ImgKeramik,
+  ImgPostJob,
 }
