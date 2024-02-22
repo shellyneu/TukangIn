@@ -27,6 +27,8 @@ import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
 import VerificationScreen from '../screens/verification'
 import DetailJob from '../screens/detailJob'
+import PengajuanScreen from '../screens/submission'
+import SubmissionScreen from '../screens/submission'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -155,6 +157,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Verification'
           component={VerificationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Submission'
+          component={SubmissionScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>
