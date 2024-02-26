@@ -21,6 +21,7 @@ import SubmissionsBoxPost from './atomics/submissions-box-post'
 import PriceBoxPost from './atomics/price-box-post'
 import LabelStatus from './atomics/label-status'
 import ButtonTwo from './molecules/button-two'
+import CardTukangPost from './organisms/card-tukang-post'
 
 export {
   NotificationIcon,
@@ -46,4 +47,5 @@ export {
   PriceBoxPost,
   LabelStatus,
   ButtonTwo,
+  CardTukangPost,
 }

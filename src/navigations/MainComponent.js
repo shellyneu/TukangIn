@@ -29,6 +29,7 @@ import VerificationScreen from '../screens/verification'
 import PostJobScreen from '../screens/post-job'
 import DetailJob from '../screens/detailJob'
 import SubmissionScreen from '../screens/submission'
+import ApplyScreen from '../screens/apply'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -167,6 +168,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Submission'
           component={SubmissionScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Apply'
+          component={ApplyScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

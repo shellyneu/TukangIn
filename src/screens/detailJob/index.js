@@ -72,13 +72,15 @@ const DetailJob = ({navigation}) => {
               <ButtonMain
                 text='Ajukan Diri'
                 onPress={() => {
-                  navigation.navigate('Submission')
+                  navigation.navigate('Apply')
                 }}
               />
             ) : (
               <ButtonTwo
                 text='Pengajuan'
-                onPress={() => navigation.navigate('Submission')}
+                onPress={() => {
+                  navigation.navigate('Submission')
+                }}
               />
             )}
           </View>
