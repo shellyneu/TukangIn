@@ -25,10 +25,15 @@ export const FontSize = {
 
 export const Color = {
   PRIMARY: '#4388BB',
+  LIGHT_PRIMARY: '#e5eef6',
   BGSCREEN: '#FAFAFA',
   GREYONE: '#8A8A8A',
   GREYTWO: '#EEEEEE',
   BLACK: '#000000',
   WHITE: '#FFFFFF',
+  GREEN: '#02D202',
+  LIGHT_GREEN: '#dcf9dc',
+  YELLOW: '#DEB629',
+  LIGHT_YELLOW: '#faf5e1',
   RED: '#FF0000',
 }

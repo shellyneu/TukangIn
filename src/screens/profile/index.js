@@ -57,7 +57,7 @@ const ProfileScreen = ({navigation}) => {
         <ItemProfile
           IconComponent={IcJobPost}
           text={'Postingan Pekerjaan'}
-          onPress={() => navigation.navigate('')}
+          onPress={() => navigation.navigate('PostJob')}
         />
         <ItemProfile
           IconComponent={IcNotification}

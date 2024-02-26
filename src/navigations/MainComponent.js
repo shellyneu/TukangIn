@@ -26,6 +26,7 @@ import {
 import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
 import VerificationScreen from '../screens/verification'
+import PostJobScreen from '../screens/post-job'
 import DetailJob from '../screens/detailJob'
 import SubmissionScreen from '../screens/submission'
 
@@ -156,6 +157,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Verification'
           component={VerificationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='PostJob'
+          component={PostJobScreen}
           options={{headerShown: false}}
         />
         <Stack.Screen
