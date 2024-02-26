@@ -27,7 +27,6 @@ import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
 import VerificationScreen from '../screens/verification'
 import DetailJob from '../screens/detailJob'
-import PengajuanScreen from '../screens/submission'
 import SubmissionScreen from '../screens/submission'
 
 // Screens Name
