@@ -163,11 +163,6 @@ const MainComponent = ({navigation}) => {
           component={PostJobScreen}
           options={{headerShown: false}}
         />
-        <Stack.Screen
-          name='DetailJob'
-          component={DetailJob}
-          options={{headerShown: false}}
-        />
       </Stack.Navigator>
     </NavigationContainer>
   )
