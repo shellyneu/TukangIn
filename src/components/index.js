@@ -16,6 +16,11 @@ import JobSet from './molecules/job-set'
 import ListJob from './atomics/list-job'
 import ButtonMain from './atomics/button-main'
 import PhotoInput from './molecules/photo-input'
+import CardJobPost from './organisms/card-job-post'
+import SubmissionsBoxPost from './atomics/submissions-box-post'
+import PriceBoxPost from './atomics/price-box-post'
+import LabelStatus from './atomics/label-status'
+import ButtonTwo from './molecules/button-two'
 
 export {
   NotificationIcon,
@@ -36,4 +41,9 @@ export {
   ListJob,
   ButtonMain,
   PhotoInput,
+  CardJobPost,
+  SubmissionsBoxPost,
+  PriceBoxPost,
+  LabelStatus,
+  ButtonTwo,
 }

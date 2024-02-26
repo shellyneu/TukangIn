@@ -8,14 +8,13 @@ import {
   JobSet,
   ListJob,
   LocationBox,
-  SkillSet,
 } from '../../components'
 import {ImgDetailJob} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
 import {IcHourglass, IcPrice} from '../../assets/icons'
 
 const DetailJob = ({navigation}) => {
-  const [isPhaseTwo, setIsPhaseTwo] = useState(true)
+  const [isPhaseTwo, setIsPhaseTwo] = useState(false)
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
