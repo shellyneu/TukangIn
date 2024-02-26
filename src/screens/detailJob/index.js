@@ -76,7 +76,10 @@ const DetailJob = ({navigation}) => {
                 }}
               />
             ) : (
-              <ButtonTwo text='Pengajuan' />
+              <ButtonTwo
+                text='Pengajuan'
+                onPress={() => navigation.navigate('Submission')}
+              />
             )}
           </View>
         </View>
