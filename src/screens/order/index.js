@@ -59,7 +59,7 @@ const OrderScreen = ({navigation}) => {
           price={'750.000'}
           countSubmit={'30'}
           statusTitle={'rekrut'}
-          onPress={() => navigation.navigate('Post')}
+          onPress={() => navigation.navigate('DetailJob')}
         />
       )}
     </View>
