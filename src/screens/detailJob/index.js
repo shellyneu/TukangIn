@@ -3,18 +3,24 @@ import React, {useState} from 'react'
 import styles from './styles'
 import {
   ButtonMain,
+  ButtonThree,
   ButtonTwo,
+  CardTukangPost,
   HeaderSecondary,
+  ItemInputJob,
   JobSet,
   ListJob,
   LocationBox,
 } from '../../components'
-import {ImgDetailJob} from '../../assets/images'
+import {ImgDetailJob, ImgProfileOne} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
 import {IcHourglass, IcPrice} from '../../assets/icons'
 
 const DetailJob = ({navigation}) => {
+  const [isPhaseOne, setIsPhaseOne] = useState(false)
   const [isPhaseTwo, setIsPhaseTwo] = useState(false)
+  const [isPhaseThree, setIsPhaseThree] = useState(false)
+  const [isPhaseFour, setIsPhaseFour] = useState(true)
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
@@ -49,6 +55,39 @@ const DetailJob = ({navigation}) => {
             />
           </View>
 
+          {isPhaseThree ? (
+            <View style={{paddingHorizontal: 16, paddingTop: 20}}>
+              <CardTukangPost
+                imgSource={ImgProfileOne}
+                name={'Fahmi Ardiansyah'}
+                skill={'12'}
+                location={'Karangsari, Kec. Kembaran'}
+                isPhaseTwo={false}
+                onPress={''}
+              />
+            </View>
+          ) : (
+            ''
+          )}
+
+          {isPhaseFour ? (
+            <View style={{paddingHorizontal: 16, paddingTop: 20, gap: 20}}>
+              <ItemInputJob
+                subject={'Testimonial Layanan'}
+                placeholder={'Deskripsi Testimonial...'}
+                isPhaseTwo={true}
+              />
+              <ItemInputJob
+                subject={'Rating 0-5'}
+                placeholder={'Isi Rating Pekerjaan...'}
+                isPhaseTwo={false}
+              />
+              <ButtonThree text={'Kirim Testimonial'} />
+            </View>
+          ) : (
+            ''
+          )}
+
           <View style={{paddingHorizontal: 16, paddingTop: 20}}>
             <View>
               <Text style={styles.contentTitle}>Deskripsi</Text>
@@ -59,7 +98,7 @@ const DetailJob = ({navigation}) => {
               </Text>
             </View>
 
-            <View>
+            <View style={{paddingTop: 20}}>
               <Text style={styles.contentTitle}>List Pekerjaan</Text>
               <ListJob list='Pemilihan cat yang untuk kusen dan pagar.' />
               <ListJob list='Membersihkan dan mempersiapkan permukaan.' />
@@ -68,21 +107,52 @@ const DetailJob = ({navigation}) => {
               <ListJob list='Menyempurnakan hasil dan memberikan perlindungan tambahan.' />
             </View>
 
-            {isPhaseTwo ? (
-              <ButtonMain
-                text='Ajukan Diri'
-                onPress={() => {
-                  navigation.navigate('Apply')
-                }}
-              />
-            ) : (
-              <ButtonTwo
-                text='Pengajuan'
-                onPress={() => {
-                  navigation.navigate('Submission')
-                }}
-              />
-            )}
+            <View style={{paddingTop: 20}}>
+              {isPhaseOne ? (
+                <ButtonMain
+                  text='Ajukan Diri'
+                  onPress={() => {
+                    navigation.navigate('Apply')
+                  }}
+                />
+              ) : (
+                ''
+              )}
+
+              {isPhaseTwo ? (
+                <ButtonTwo
+                  text='Pengajuan'
+                  onPress={() => {
+                    navigation.navigate('Submission')
+                  }}
+                />
+              ) : (
+                ''
+              )}
+
+              {isPhaseThree ? (
+                <ButtonMain
+                  text='Pekerjaan Sudah Selesai'
+                  onPress={() => {
+                    navigation.navigate('')
+                  }}
+                />
+              ) : (
+                ''
+              )}
+
+              {isPhaseFour ? (
+                <ButtonMain
+                  text='Selesai'
+                  isDisabled={true}
+                  onPress={() => {
+                    navigation.navigate('')
+                  }}
+                />
+              ) : (
+                ''
+              )}
+            </View>
           </View>
         </View>
       </ScrollView>

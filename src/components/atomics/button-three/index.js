@@ -2,33 +2,22 @@ import React from 'react'
 import {TouchableOpacity, Text, StyleSheet} from 'react-native'
 import {FontSize, Fonts, Color} from '../../../constants'
 
-const ButtonMain = ({text, onPress, isDisabled}) => {
+const ButtonThree = ({text, onPress}) => {
   return (
-    <TouchableOpacity
-      style={isDisabled ? styles.containerDisabled : styles.container}
-      onPress={onPress}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Text style={styles.text}>{text}</Text>
     </TouchableOpacity>
   )
 }
 
-export default ButtonMain
+export default ButtonThree
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: 46,
+    width: 154,
+    paddingVertical: 12,
     borderRadius: 30,
     backgroundColor: Color.PRIMARY,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  containerDisabled: {
-    width: '100%',
-    height: 46,
-    borderRadius: 30,
-    backgroundColor: Color.GREYONE,
-    justifyContent: 'center',
     alignItems: 'center',
   },
   text: {

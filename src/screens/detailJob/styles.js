@@ -26,7 +26,7 @@ export default StyleSheet.create({
   job: {
     flexDirection: 'row',
     width: '100%',
-    gap: 7,
+    gap: 15,
     justifyContent: 'center',
     paddingTop: 20,
   },
