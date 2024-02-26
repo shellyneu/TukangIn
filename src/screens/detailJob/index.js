@@ -1,8 +1,9 @@
 import {View, Text, Image} from 'react-native'
-import React from 'react'
-import styles from './styles'
+import React, {useState} from 'react'
+import styles from './style'
 import {
   ButtonMain,
+  ButtonTwo,
   HeaderSecondary,
   JobSet,
   ListJob,
@@ -13,7 +14,8 @@ import {ImgDetailJob} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
 import {IcHourglass, IcPrice} from '../../assets/icons'
 
-const DetailJob = () => {
+const DetailJob = ({navigation}) => {
+  const [isPhaseTwo, setIsPhaseTwo] = useState(true)
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
@@ -67,7 +69,16 @@ const DetailJob = () => {
               <ListJob list='Menyempurnakan hasil dan memberikan perlindungan tambahan.' />
             </View>
 
-            <ButtonMain text='Ajukan Diri' />
+            {isPhaseTwo ? (
+              <ButtonMain
+                text='Ajukan Diri'
+                onPress={() => {
+                  navigation.navigate('Submission')
+                }}
+              />
+            ) : (
+              <ButtonTwo text='Pengajuan' />
+            )}
           </View>
         </View>
       </ScrollView>

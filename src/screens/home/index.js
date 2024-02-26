@@ -113,6 +113,7 @@ const HomeScreen = ({navigation}) => {
       location={item.location}
       price={item.price}
       countSubmit={item.countSubmit}
+      onPress={''}
     />
   )
 

@@ -144,6 +144,11 @@ const MainComponent = ({navigation}) => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name='DetailJob'
+          component={DetailJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name='AsCraftman'
           component={AsCraftman}
           options={{headerShown: false}}
