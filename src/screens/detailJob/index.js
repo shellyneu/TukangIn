@@ -1,6 +1,6 @@
 import {View, Text, Image} from 'react-native'
 import React, {useState} from 'react'
-import styles from './style'
+import styles from './styles'
 import {
   ButtonMain,
   ButtonTwo,
