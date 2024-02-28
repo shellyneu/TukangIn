@@ -1,6 +1,7 @@
-import {StyleSheet, Text, View, TextInput} from 'react-native'
+import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
 import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
+import {IcPlus} from '../../../assets/icons'
 
 const InputFieldMain = ({
   isPhaseTwo,
@@ -12,10 +13,14 @@ const InputFieldMain = ({
   isError,
   showErrorMessage,
   errorMsg,
+  showAddContainer,
+  onPressAdd,
+  showTitle,
 }) => {
   return (
     <View>
-      <Text style={styles.titleField}>{titleField}</Text>
+      {showTitle ? null : <Text style={styles.titleField}>{titleField}</Text>}
+
       {isPhaseTwo ? (
         <TextInput
           multiline
@@ -28,13 +33,21 @@ const InputFieldMain = ({
           onChangeText={onChangeText}
         />
       ) : (
-        <TextInput
-          placeholder={placeholder}
-          style={isError ? styles.textareaError : styles.textarea}
-          keyboardType={keyboardType}
-          value={value}
-          onChangeText={onChangeText}
-        />
+        <View>
+          <TextInput
+            placeholder={placeholder}
+            style={isError ? styles.textareaError : styles.textarea}
+            keyboardType={keyboardType}
+            value={value}
+            onChangeText={onChangeText}
+          />
+          {showAddContainer && (
+            <TouchableOpacity style={styles.containerAdd} onPress={onPressAdd}>
+              <IcPlus />
+              <Text style={styles.textAdd}>Tambah List</Text>
+            </TouchableOpacity>
+          )}
+        </View>
       )}
 
       {showErrorMessage && <Text style={styles.errorMsg}>{errorMsg}</Text>}
@@ -65,12 +78,23 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderWidth: 1,
-    borderColor: Color.ERROR,
+    borderColor: Color.RED,
   },
   errorMsg: {
     fontSize: FontSize.dp_12,
     fontFamily: Fonts.REGULAR,
-    color: Color.ERROR,
+    color: Color.RED,
     marginTop: 5,
+  },
+  containerAdd: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    marginTop: 10,
+  },
+  textAdd: {
+    fontSize: FontSize.dp_14,
+    fontFamily: Fonts.MEDIUM,
+    color: Color.PRIMARY,
   },
 })

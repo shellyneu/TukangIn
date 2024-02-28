@@ -12,7 +12,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingBottom: 20,
   },
   profile: {borderRadius: 100, height: 46, width: 46},
   greetings: {flexDirection: 'column', alignItems: 'center'},
@@ -30,7 +29,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 8,
-    marginBottom: 24,
+    marginVertical: 20,
     alignItems: 'flex-end',
   },
   sectionTitle: {
