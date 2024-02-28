@@ -18,13 +18,14 @@ export default JobSet
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 8,
-    paddingHorizontal: 8,
-    borderRadius: 8,
+    paddingVertical: 10,
+    paddingHorizontal: 25,
+    borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-    width: 155,
+    gap: 15,
+    // width: 155,
+    backgroundColor: Color.WHITE,
   },
   textTitle: {
     fontSize: FontSize.dp_12,

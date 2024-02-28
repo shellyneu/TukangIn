@@ -4,35 +4,36 @@ import {FontSize, Fonts, Color} from '../../constants'
 export default StyleSheet.create({
   mainBody: {
     backgroundColor: Color.BGSCREEN,
-    height: '100%',
-    flexDirection: 'column',
+    flex: 1,
+    paddingHorizontal: 16,
+  },
+  body: {
+    // height: '100%',
+    paddingTop: 154,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  icon: {
+    height: 183,
+    width: 183,
   },
   subject: {
-    fontSize: FontSize.dp_24,
+    fontSize: FontSize.dp_20,
     fontFamily: Fonts.MEDIUM,
     color: Color.BLACK,
+    paddingBottom: 10,
   },
   desc: {
-    width: 322,
+    width: 307,
     fontSize: FontSize.dp_14,
     fontFamily: Fonts.REGULAR,
     color: Color.GREYONE,
+    textAlign: 'center',
   },
-  aboutYou: {
-    fontSize: FontSize.dp_18,
+  verification: {
+    fontSize: FontSize.dp_16,
     fontFamily: Fonts.MEDIUM,
-    color: Color.BLACK,
-  },
-  input: {
-    width: '100%',
-    backgroundColor: Color.WHITE,
-    borderRadius: 14,
-    paddingLeft: 18,
-    paddingBottom: 58.5,
-  },
-  card: {
-    fontSize: FontSize.dp_18,
-    fontFamily: Fonts.MEDIUM,
-    color: Color.BLACK,
+    color: Color.PRIMARY,
+    paddingTop: 20,
   },
 })

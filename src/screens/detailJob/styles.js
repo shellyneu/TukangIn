@@ -3,7 +3,7 @@ import {FontSize, Fonts, Color} from '../../constants'
 
 export default StyleSheet.create({
   mainBody: {
-    backgroundColor: Color.WHITE,
+    backgroundColor: Color.BGSCREEN,
     flex: 1,
   },
   content: {
@@ -25,9 +25,9 @@ export default StyleSheet.create({
   },
   job: {
     flexDirection: 'row',
-    gap: 10,
     width: '100%',
-    justifyContent: 'space-around',
+    gap: 15,
+    justifyContent: 'center',
     paddingTop: 20,
   },
   contentTitle: {

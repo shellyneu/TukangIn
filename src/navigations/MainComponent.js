@@ -27,6 +27,10 @@ import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
 import VerificationScreen from '../screens/verification'
 import PostJobScreen from '../screens/post-job'
+import DetailJob from '../screens/detailJob'
+import SubmissionScreen from '../screens/submission'
+import ApplyScreen from '../screens/apply'
+import DetailJobUser from '../screens/detailJobUser'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -143,6 +147,16 @@ const MainComponent = ({navigation}) => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name='DetailJob'
+          component={DetailJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='DetailJobUser'
+          component={DetailJobUser}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name='AsCraftman'
           component={AsCraftman}
           options={{headerShown: false}}
@@ -155,6 +169,16 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='PostJob'
           component={PostJobScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Submission'
+          component={SubmissionScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Apply'
+          component={ApplyScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

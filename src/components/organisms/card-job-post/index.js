@@ -11,9 +11,10 @@ const CardJobPost = ({
   price,
   countSubmit,
   statusTitle,
+  onPress,
 }) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <Image source={imgSource} style={styles.img} />
       <View>
         <View style={styles.headerBox}>
