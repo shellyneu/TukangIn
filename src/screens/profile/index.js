@@ -1,4 +1,11 @@
-import {View, Text, Image, TouchableOpacity} from 'react-native'
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  Platform,
+  Linking,
+} from 'react-native'
 import React from 'react'
 import styles from './styles'
 import NotificationIcon from '../../components/atomics/notification-icon'
@@ -16,6 +23,31 @@ import {ImgUser} from '../../assets/images'
 import {ItemProfile} from '../../components'
 
 const ProfileScreen = ({navigation}) => {
+  const sendWhatsApp = () => {
+    let msg =
+      'Halo, \nSaya membutuhkan bantuan terkait TukangIn. \n \n Apakah bisa bantu?'
+    let phoneWithCountryCode = '+6289648625898'
+
+    let mobile =
+      Platform.OS == 'ios' ? phoneWithCountryCode : '+' + phoneWithCountryCode
+    if (mobile) {
+      if (msg) {
+        let url = 'whatsapp://send?text=' + msg + '&phone=' + mobile
+        Linking.openURL(url)
+          .then(data => {
+            console.log('WhatsApp Opened')
+          })
+          .catch(() => {
+            alert('Make sure WhatsApp installed on your device')
+          })
+      } else {
+        alert('Please insert message to send')
+      }
+    } else {
+      alert('Please insert mobile no')
+    }
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* TOP */}
@@ -62,12 +94,17 @@ const ProfileScreen = ({navigation}) => {
         <ItemProfile
           IconComponent={IcNotification}
           text={'Notifikasi'}
-          onPress={() => navigation.navigate('')}
+          onPress={() => {
+            navigation.navigate('Notification', {
+              sectionTitle: 'Notifikasi',
+            })
+            console.log('click')
+          }}
         />
         <ItemProfile
           IconComponent={IcHelpCenter}
           text={'Pusat Bantuan'}
-          onPress={() => navigation.navigate('')}
+          onPress={sendWhatsApp}
         />
         <ItemProfile
           IconComponent={IcLanguage}

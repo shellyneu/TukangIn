@@ -68,10 +68,12 @@ import IcChevronRight from './ic-chevron-right.svg'
 import IcEdit from './ic-edit.svg'
 import IcRisk from './ic-risk.svg'
 import IcFilePlus from './ic-file-plus.svg'
+import IcAddImg from './ic-add-img.svg'
+import IcPlus from './ic-plus.svg'
+import IcNoneFiles from './ic-none-files.svg'
 
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
-import IcAddImg from './ic-add-img.svg'
 
 export {
   IcMailBox,
@@ -125,4 +127,6 @@ export {
   IcRisk,
   IcFilePlus,
   IcAddImg,
+  IcPlus,
+  IcNoneFiles,
 }

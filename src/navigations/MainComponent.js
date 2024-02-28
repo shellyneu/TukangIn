@@ -37,6 +37,7 @@ import OnboardingScreen from '../screens/onboarding'
 import RegisterScreen from '../screens/register'
 import LoginScreen from '../screens/login'
 import TawaranJobScreen from '../screens/tawaran-job'
+import FormPostJob from '../screens/post-job/form-post-job'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -205,6 +206,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='TawaranJob'
           component={TawaranJobScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='FormPostJob'
+          component={FormPostJob}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

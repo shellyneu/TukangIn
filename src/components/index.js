@@ -28,6 +28,7 @@ import ButtonFour from './atomics/button-four'
 import InputFieldMain from './molecules/input-field-main'
 import CardSkill from './organisms/card-skill'
 import TestimonialCard from './organisms/testimonial-card'
+import InputField from './atomics/input-field'
 
 export {
   NotificationIcon,
@@ -60,4 +61,5 @@ export {
   InputFieldMain,
   CardSkill,
   TestimonialCard,
+  InputField,
 }
