@@ -1,4 +1,4 @@
-import {View, Text} from 'react-native'
+import {View, Text, TouchableOpacity} from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
 import {
@@ -58,6 +58,10 @@ const OrderScreen = ({navigation}) => {
           onPress={() => navigation.navigate('DetailJobUser')}
         />
       )}
+
+      <TouchableOpacity onPress={() => navigation.navigate('Transaction')}>
+        <Text>transaction</Text>
+      </TouchableOpacity>
     </View>
   )
 }

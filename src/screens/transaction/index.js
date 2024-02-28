@@ -55,11 +55,13 @@ const TransactionScreen = props => {
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
-      <HeaderSecondary
-        onPressBack={() => navigation.goBack()}
-        sectionTitle='Transaksi'
-        customStyle={{paddingHorizontal: 16}}
-      />
+      <View style={{paddingHorizontal: 16}}>
+        <HeaderSecondary
+          onPressBack={() => navigation.goBack()}
+          sectionTitle='Transaksi'
+          // customStyle={{paddingHorizontal: 16}}
+        />
+      </View>
 
       {/* CONTENTS */}
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -136,9 +138,7 @@ const TransactionScreen = props => {
       </ScrollView>
 
       {/* FOOTER */}
-      <View style={styles.footer}>
-        <ButtonMain text='Kirim Bukti' />
-      </View>
+      <ButtonMain text='Kirim Bukti' />
     </View>
   )
 }
