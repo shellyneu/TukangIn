@@ -5,7 +5,6 @@ export default StyleSheet.create({
   mainBody: {
     backgroundColor: Color.BGSCREEN,
     height: '100%',
-    paddingHorizontal: 16,
     flexDirection: 'column',
   },
   subject: {

@@ -4,20 +4,14 @@ import {
   ScrollView,
   Image,
   TouchableOpacity,
-  TextInput,
   FlatList,
 } from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
-import {Color, FontSize, Fonts} from '../../constants'
 import {
-  IcAlarmBell,
-  IcCompass,
   IcCompassTwo,
-  IcDroplets,
   IcGridLayout,
   IcPalette,
-  IcSearch,
   IcTearDrop,
 } from '../../assets/icons'
 import {
@@ -25,21 +19,10 @@ import {
   ImgCraftmanTwo,
   ImgKeramik,
   ImgKeran,
-  ImgProfileOne,
   ImgUser,
 } from '../../assets/images'
-import {Badge} from 'react-native-elements'
 import NotificationIcon from '../../components/atomics/notification-icon'
-import {
-  CardJob,
-  CardTukang,
-  FeatureIcon,
-  LocationBox,
-  RatingsBox,
-  SearchBar,
-  SkillSet,
-  TabBar,
-} from '../../components'
+import {CardJob, CardTukang, FeatureIcon, TabBar} from '../../components'
 
 const HomeScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState(1)
@@ -113,7 +96,9 @@ const HomeScreen = ({navigation}) => {
       location={item.location}
       price={item.price}
       countSubmit={item.countSubmit}
-      onPress={''}
+      onPress={() => {
+        navigation.navigate('DetailJob')
+      }}
     />
   )
 
@@ -129,9 +114,6 @@ const HomeScreen = ({navigation}) => {
           </View>
           <NotificationIcon />
         </View>
-
-        {/* SEARCH */}
-        <SearchBar placeholder={'Cari pekerjaan, tukang...'} />
 
         {/* FEATURE LIST */}
         <View style={styles.featureBox}>

@@ -1,18 +1,28 @@
 import {View, Text, Image} from 'react-native'
-import React from 'react'
+import React, {useState} from 'react'
 import styles from './styles'
 import {
   ButtonMain,
+  ButtonThree,
+  ButtonTwo,
+  CardTukangPost,
   HeaderSecondary,
+  ItemInputJob,
   JobSet,
   ListJob,
   LocationBox,
 } from '../../components'
-import {ImgDetailJob} from '../../assets/images'
+import {ImgDetailJob, ImgProfileOne} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
 import {IcHourglass, IcPrice} from '../../assets/icons'
 
-const DetailJob = ({navigation}) => {
+const DetailJobUser = ({navigation}) => {
+  const [isButtonPhase, setisButtonPhase] = useState(false)
+  const [isTukangExist, setIsTukangExist] = useState(true)
+  const [isTestiExist, setIsTestiExist] = useState(false)
+  const [buttonTitle, setButtonTitle] = useState('Pekerjaan Telah Selesai')
+  const [buttonStatus, setButtonStatus] = useState(false)
+
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
@@ -47,6 +57,35 @@ const DetailJob = ({navigation}) => {
             />
           </View>
 
+          {isTukangExist ? (
+            <View style={{paddingHorizontal: 16, paddingTop: 20}}>
+              <CardTukangPost
+                imgSource={ImgProfileOne}
+                name={'Fahmi Ardiansyah'}
+                skill={'12'}
+                location={'Karangsari, Kec. Kembaran'}
+                isPhaseTwo={false}
+                onPress={''}
+              />
+
+              {isTestiExist ? (
+                <View style={{paddingTop: 20, gap: 20}}>
+                  <ItemInputJob
+                    subject={'Testimonial Layanan'}
+                    placeholder={'Deskripsi Testimonial...'}
+                    isPhaseTwo={true}
+                  />
+                  <ItemInputJob
+                    subject={'Rating 0-5'}
+                    placeholder={'Isi Rating Pekerjaan...'}
+                    isPhaseTwo={false}
+                  />
+                  <ButtonThree text={'Kirim Testimonial'} />
+                </View>
+              ) : null}
+            </View>
+          ) : null}
+
           <View style={{paddingHorizontal: 16, paddingTop: 20}}>
             <View>
               <Text style={styles.contentTitle}>Deskripsi</Text>
@@ -69,14 +108,28 @@ const DetailJob = ({navigation}) => {
         </View>
       </ScrollView>
 
-      <ButtonMain
-        text='Ajukan Diri'
-        onPress={() => {
-          navigation.navigate('Apply')
-        }}
-      />
+      {isButtonPhase ? (
+        <ButtonTwo
+          text='Pengajuan'
+          onPressOne={() => {
+            navigation.navigate('Submission')
+          }}
+          onPressTwo={() => navigation.goBack()}
+        />
+      ) : (
+        <ButtonMain
+          text={buttonTitle}
+          disabled={buttonStatus}
+          isDisabled={buttonStatus}
+          onPress={() => {
+            setIsTestiExist(true)
+            setButtonTitle('Selesai')
+            setButtonStatus(true)
+          }}
+        />
+      )}
     </View>
   )
 }
 
-export default DetailJob
+export default DetailJobUser

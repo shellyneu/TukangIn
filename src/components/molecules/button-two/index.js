@@ -2,13 +2,13 @@ import React from 'react'
 import {TouchableOpacity, Text, StyleSheet, View} from 'react-native'
 import {FontSize, Fonts, Color} from '../../../constants'
 
-const ButtonTwo = ({text, onPress}) => {
+const ButtonTwo = ({text, onPressOne, onPressTwo}) => {
   return (
     <View style={styles.main}>
-      <TouchableOpacity style={styles.containerOne} onPress={onPress}>
+      <TouchableOpacity style={styles.containerOne} onPress={onPressOne}>
         <Text style={styles.textOne}>{text}</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.containerTwo} onPress={onPress}>
+      <TouchableOpacity style={styles.containerTwo} onPress={onPressTwo}>
         <Text style={styles.textTwo}>Batalkan</Text>
       </TouchableOpacity>
     </View>
@@ -21,6 +21,9 @@ const styles = StyleSheet.create({
   main: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    paddingVertical: 16,
+    backgroundColor: Color.WHITE,
   },
   containerOne: {
     paddingHorizontal: 50,

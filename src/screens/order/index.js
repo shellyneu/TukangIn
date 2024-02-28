@@ -1,4 +1,4 @@
-import {View, Text, TouchableOpacity} from 'react-native'
+import {View, Text} from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
 import {
@@ -43,10 +43,6 @@ const OrderScreen = ({navigation}) => {
             title: 'Tawaran',
             onPress: () => [setActiveTab(2), handleTabPress(2)],
           },
-          {
-            title: 'Jasa Saya',
-            onPress: () => [setActiveTab(3), handleTabPress(3)],
-          },
         ]}
         activeTab={activeTab}
       />
@@ -59,7 +55,7 @@ const OrderScreen = ({navigation}) => {
           price={'750.000'}
           countSubmit={'30'}
           statusTitle={'rekrut'}
-          onPress={() => navigation.navigate('DetailJob')}
+          onPress={() => navigation.navigate('DetailJobUser')}
         />
       )}
     </View>

@@ -30,6 +30,7 @@ import PostJobScreen from '../screens/post-job'
 import DetailJob from '../screens/detailJob'
 import SubmissionScreen from '../screens/submission'
 import ApplyScreen from '../screens/apply'
+import DetailJobUser from '../screens/detailJobUser'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -148,6 +149,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='DetailJob'
           component={DetailJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='DetailJobUser'
+          component={DetailJobUser}
           options={{headerShown: false}}
         />
         <Stack.Screen

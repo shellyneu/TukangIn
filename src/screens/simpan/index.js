@@ -1,7 +1,6 @@
 import {View, Text, ScrollView} from 'react-native'
 import React, {useState} from 'react'
 import styles from './styles'
-import {Color, FontSize, Fonts} from '../../constants'
 import {NotificationIcon, SearchBar, TabBar} from '../../components'
 
 const SimpanScreen = () => {
@@ -19,7 +18,7 @@ const SimpanScreen = () => {
       </View>
 
       {/* SEARCH */}
-      <SearchBar placeholder={'Cari order...'} />
+      <SearchBar placeholder={'Cari pekerjaan, tukang...'} />
 
       {/* TAB BAR */}
       <TabBar
