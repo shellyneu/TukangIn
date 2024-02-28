@@ -32,6 +32,11 @@ import SubmissionScreen from '../screens/submission'
 import ApplyScreen from '../screens/apply'
 import DetailJobUser from '../screens/detailJobUser'
 
+// On BOarding Screen
+import OnboardingScreen from '../screens/onboarding'
+import RegisterScreen from '../screens/register'
+import LoginScreen from '../screens/login'
+
 // Screens Name
 const homeName = 'Beranda'
 const simpanName = 'Simpan'
@@ -114,8 +119,23 @@ function Home() {
 const MainComponent = ({navigation}) => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Home'}>
+      <Stack.Navigator initialRouteName={'Onboarding'}>
         {/* Main Screens */}
+        <Stack.Screen
+          name='Onboarding'
+          component={OnboardingScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Register'
+          component={RegisterScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Login'
+          component={LoginScreen}
+          options={{headerShown: false}}
+        />
         <Stack.Screen
           name='Home'
           component={Home}
