@@ -24,6 +24,7 @@ import ButtonTwo from './molecules/button-two'
 import CardTukangPost from './organisms/card-tukang-post'
 import ItemInputJob from './molecules/item-input-job'
 import ButtonThree from './atomics/button-three'
+import ButtonFour from './atomics/button-four'
 
 export {
   NotificationIcon,
@@ -52,4 +53,5 @@ export {
   CardTukangPost,
   ItemInputJob,
   ButtonThree,
+  ButtonFour,
 }
