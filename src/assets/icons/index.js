@@ -75,6 +75,12 @@ import IcNoneFiles from './ic-none-files.svg'
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
 
+// others
+import IcBCA from './ic-bca.svg'
+import IcOVO from './ic-ovo.svg'
+import IcGopay from './ic-gopay.svg'
+import IcAddFiles from './ic-add-files.svg'
+
 export {
   IcMailBox,
   IcChevronLeft,
@@ -129,4 +135,8 @@ export {
   IcAddImg,
   IcPlus,
   IcNoneFiles,
+  IcBCA,
+  IcOVO,
+  IcGopay,
+  IcAddFiles,
 }
