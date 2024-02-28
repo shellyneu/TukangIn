@@ -29,6 +29,7 @@ import InputFieldMain from './molecules/input-field-main'
 import CardSkill from './organisms/card-skill'
 import TestimonialCard from './organisms/testimonial-card'
 import InputField from './atomics/input-field'
+import CardBank from './molecules/card-bank'
 
 export {
   NotificationIcon,
@@ -62,4 +63,5 @@ export {
   CardSkill,
   TestimonialCard,
   InputField,
+  CardBank,
 }
