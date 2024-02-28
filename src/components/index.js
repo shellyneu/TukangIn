@@ -25,6 +25,9 @@ import CardTukangPost from './organisms/card-tukang-post'
 import ItemInputJob from './molecules/item-input-job'
 import ButtonThree from './atomics/button-three'
 import ButtonFour from './atomics/button-four'
+import InputFieldMain from './molecules/input-field-main'
+import CardSkill from './organisms/card-skill'
+import TestimonialCard from './organisms/testimonial-card'
 
 export {
   NotificationIcon,
@@ -54,4 +57,7 @@ export {
   ItemInputJob,
   ButtonThree,
   ButtonFour,
+  InputFieldMain,
+  CardSkill,
+  TestimonialCard,
 }

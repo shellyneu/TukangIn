@@ -71,6 +71,7 @@ import IcFilePlus from './ic-file-plus.svg'
 
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
+import IcAddImg from './ic-add-img.svg'
 
 export {
   IcMailBox,
@@ -123,4 +124,5 @@ export {
   IcEdit,
   IcRisk,
   IcFilePlus,
+  IcAddImg,
 }

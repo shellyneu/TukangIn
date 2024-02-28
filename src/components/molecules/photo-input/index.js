@@ -2,13 +2,14 @@ import {View, Text, StyleSheet, TouchableOpacity} from 'react-native'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {IcFilePlus} from '../../../assets/icons'
 
-const PhotoInput = () => {
+const PhotoInput = ({showTitle, placeholder, titleField, icon, onPress}) => {
   return (
     <View style={{gap: 14}}>
-      <Text style={styles.card}>Kartu Tanda Penduduk</Text>
-      <TouchableOpacity style={styles.upload}>
-        <IcFilePlus />
-        <Text style={styles.text}>Upload File</Text>
+      {showTitle ? <Text style={styles.card}>{titleField}</Text> : null}
+
+      <TouchableOpacity style={styles.upload} onPress={onPress}>
+        {icon}
+        <Text style={styles.text}>{placeholder}</Text>
       </TouchableOpacity>
     </View>
   )
