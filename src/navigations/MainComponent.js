@@ -36,6 +36,7 @@ import DetailJobUser from '../screens/detailJobUser'
 import OnboardingScreen from '../screens/onboarding'
 import RegisterScreen from '../screens/register'
 import LoginScreen from '../screens/login'
+import TawaranJobScreen from '../screens/tawaran-job'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -199,6 +200,11 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='Apply'
           component={ApplyScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='TawaranJob'
+          component={TawaranJobScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

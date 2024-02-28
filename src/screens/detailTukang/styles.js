@@ -4,7 +4,6 @@ import {FontSize, Fonts, Color} from '../../constants'
 export default StyleSheet.create({
   containerMain: {
     flex: 1,
-    paddingHorizontal: 16,
     backgroundColor: Color.BGSCREEN,
   },
   mainBody: {
@@ -13,11 +12,49 @@ export default StyleSheet.create({
     paddingHorizontal: 16,
     marginTop: 20,
   },
-  imgProfile: {width: 100, height: 100, borderRadius: 100},
   identityBox: {alignItems: 'center', marginTop: 14, gap: 5},
   name: {
     fontSize: FontSize.dp_20,
     color: Color.BLACK,
     fontFamily: Fonts.MEDIUM,
+  },
+  sectionText: {
+    fontSize: FontSize.dp_18,
+    fontFamily: Fonts.MEDIUM,
+    color: Color.BLACK,
+    marginBottom: 10,
+  },
+  descText: {
+    fontSize: FontSize.dp_14,
+    fontFamily: Fonts.REGULAR,
+    color: Color.GREYONE,
+    lineHeight: 19,
+  },
+  rowColumn: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  footer: {
+    backgroundColor: Color.WHITE,
+    paddingBottom: 20,
+    paddingTop: 15,
+    paddingHorizontal: 16,
+    elevation: 5,
+  },
+  imageProfile: status => ({
+    width: status ? 60 : 100,
+    height: status ? 60 : 100,
+    borderRadius: 100,
+  }),
+  headerSkill: {flexDirection: 'row', gap: 12, alignItems: 'center'},
+  titleSkill: {
+    fontSize: FontSize.dp_20,
+    fontFamily: Fonts.MEDIUM,
+    color: Color.BLACK,
+  },
+  priceText: {
+    fontSize: FontSize.dp_16,
+    fontFamily: Fonts.REGULAR,
+    color: Color.PRIMARY,
   },
 })

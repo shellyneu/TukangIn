@@ -3,9 +3,9 @@ import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {Rupiah} from '../..'
 
-const SkillSet = ({iconSkill, titleSkill, price}) => {
+const SkillSet = ({iconSkill, titleSkill, price, onPress}) => {
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       {iconSkill}
       <View>
         <Text style={styles.textMain}>{titleSkill}</Text>
@@ -26,7 +26,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
-    width: 155,
+    width: 170,
+    margin: 4,
   },
   textMain: {
     fontSize: FontSize.dp_16,
