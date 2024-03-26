@@ -8,17 +8,17 @@ const LabelStatus = ({status}) => {
   let labelText = ''
 
   switch (status) {
-    case 'rekrut':
+    case 1:
       labelColor = Color.LIGHT_PRIMARY
       labelTextColor = Color.PRIMARY
       labelText = 'Rekrut'
       break
-    case 'proses':
+    case 2:
       labelColor = Color.LIGHT_YELLOW
       labelTextColor = Color.YELLOW
       labelText = 'Proses'
       break
-    case 'selesai':
+    case 3:
       labelColor = Color.LIGHT_GREEN
       labelTextColor = Color.GREEN
       labelText = 'Selesai'

@@ -1,8 +1,8 @@
 import {View, Text, Image, TouchableOpacity} from 'react-native'
 import React from 'react'
 import styles from './styles'
-import {ImgSplash} from '../../assets/images'
 import {ButtonFour} from '../../components'
+import {ImgSplash} from '../../assets/images'
 
 const OnboardingScreen = ({navigation}) => {
   return (

@@ -6,11 +6,16 @@ import {ImgUser} from '../../assets/images'
 import {IcRisk} from '../../assets/icons'
 
 const AsCraftman = ({navigation}) => {
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
   return (
     <View style={styles.mainBody}>
       <HeaderSecondary
         onPressBack={() => navigation.goBack('profile')}
         sectionTitle='Sebagai Tukang'
+        onPressNotif={onPressNotif}
       />
       <View style={styles.body}>
         <IcRisk style={styles.icon} />

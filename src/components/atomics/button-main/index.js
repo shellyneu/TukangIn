@@ -2,14 +2,27 @@ import React from 'react'
 import {TouchableOpacity, Text, StyleSheet, View} from 'react-native'
 import {FontSize, Fonts, Color} from '../../../constants'
 
-const ButtonMain = ({text, onPress, disabled, isDisabled}) => {
+const ButtonMain = ({
+  text,
+  onPress,
+  disabled,
+  isDisabled,
+  isBackgroundVis,
+  customStyle,
+  isMiniSize,
+}) => {
   return (
-    <View style={styles.view}>
+    <View style={isBackgroundVis ? styles.view : null}>
       <TouchableOpacity
-        style={isDisabled ? styles.containerDisabled : styles.container}
+        style={[
+          isDisabled ? styles.containerDisabled : styles.container,
+          customStyle,
+        ]}
         onPress={onPress}
         disabled={disabled}>
-        <Text style={styles.text}>{text}</Text>
+        <Text style={isMiniSize ? styles.text(true) : styles.text(false)}>
+          {text}
+        </Text>
       </TouchableOpacity>
     </View>
   )
@@ -39,9 +52,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  text: {
-    fontSize: FontSize.dp_18,
+  text: mini => ({
+    fontSize: mini ? FontSize.dp_16 : FontSize.dp_18,
     color: Color.WHITE,
-    fontFamily: Fonts.MEDIUM,
-  },
+    fontFamily: mini ? Fonts.REGULAR : Fonts.MEDIUM,
+  }),
 })

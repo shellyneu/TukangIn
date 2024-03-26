@@ -9,7 +9,7 @@ export default StyleSheet.create({
   mainBody: {
     backgroundColor: Color.BGSCREEN,
     paddingHorizontal: 16,
-    marginTop: 20,
+    marginVertical: 20,
   },
   buttonContainer: {
     backgroundColor: Color.PRIMARY,

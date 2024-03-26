@@ -1,5 +1,5 @@
-import {View, Text, TouchableOpacity} from 'react-native'
-import React, {useState} from 'react'
+import {View, Text, ScrollView, TouchableOpacity} from 'react-native'
+import React, {useEffect, useState} from 'react'
 import styles from './styles'
 import {
   CardJobPost,
@@ -8,15 +8,27 @@ import {
   TabBar,
 } from '../../components'
 import {ImgPostJob} from '../../assets/images'
+import {IcNoneFiles} from '../../assets/icons'
 
 const OrderScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState(1)
+  const [loading, setLoading] = useState(true)
   const [showCardJobPost, setShowCardJobPost] = useState(false)
+  const [showTawaranValue, setShowTawaranValue] = useState(false)
 
   const handleTabPress = tabIndex => {
     setActiveTab(tabIndex)
     setShowCardJobPost(tabIndex === 1)
+    setShowTawaranValue(tabIndex === 2)
   }
+
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
+  useEffect(() => {
+    setShowCardJobPost(true)
+  }, [])
 
   return (
     <View style={styles.mainBody}>
@@ -26,7 +38,7 @@ const OrderScreen = ({navigation}) => {
           <Text style={styles.greetings}>Hi, Agus Setiawan</Text>
           <Text style={styles.desc}>Kelola Pesanan Anda</Text>
         </View>
-        <NotificationIcon />
+        <NotificationIcon onPress={onPressNotif} />
       </View>
 
       {/* SEARCH */}
@@ -47,21 +59,31 @@ const OrderScreen = ({navigation}) => {
         activeTab={activeTab}
       />
 
-      {showCardJobPost && (
-        <CardJobPost
-          imgSource={ImgPostJob}
-          jobTitle={'Perbaikan Genteng Terpercaya'}
-          location={'Dukuhwaluh, Kec. Kembaran'}
-          price={'750.000'}
-          countSubmit={'30'}
-          statusTitle={'rekrut'}
-          onPress={() => navigation.navigate('DetailJobUser')}
-        />
-      )}
+      <ScrollView>
+        {showCardJobPost && (
+          <CardJobPost
+            imgSource={ImgPostJob}
+            jobTitle={'Ahli Cat Kusen dan Pagar'}
+            location={'Karanglewas, Kec. Jatilawang'}
+            price={'420.000'}
+            countSubmit={'3'}
+            statusTitle={'rekrut'}
+            onPress={() => navigation.navigate('DetailJobUser')}
+          />
+        )}
 
-      <TouchableOpacity onPress={() => navigation.navigate('Transaction')}>
-        <Text>transaction</Text>
-      </TouchableOpacity>
+        {showTawaranValue && (
+          <View style={styles.containerNone}>
+            <IcNoneFiles />
+            <View style={styles.textNoneBox}>
+              <Text style={styles.titleNone}>Belum Ada Unggahan</Text>
+              <Text style={styles.descNone}>
+                Anda belum ada unggahan, mulai unggah kerusakan pada rumah anda
+              </Text>
+            </View>
+          </View>
+        )}
+      </ScrollView>
     </View>
   )
 }

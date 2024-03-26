@@ -1,16 +1,10 @@
 import {View, Text} from 'react-native'
-import React from 'react'
+import React, {useEffect, useState} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {createStackNavigator} from '@react-navigation/stack'
+import SplashScreen from 'react-native-splash-screen'
 import {Color, FontSize, Fonts} from '../constants'
-
-// Main Screens and Icons
-import HomeScreen from '../screens/home'
-import SimpanScreen from '../screens/simpan'
-import OrderScreen from '../screens/order'
-import ProfileScreen from '../screens/profile'
-import DetailProfileScreen from '../screens/detail-profile'
 import {
   IcHome,
   IcHomeFilled,
@@ -22,11 +16,25 @@ import {
   IcProfileFilled,
 } from '../assets/icons'
 
+// Main Screens and Icons
+import HomeScreen from '../screens/home'
+import SimpanScreen from '../screens/simpan'
+import OrderScreen from '../screens/order'
+import ProfileScreen from '../screens/profile'
+
 // Details Screen
 import DetailTukang from '../screens/detailTukang'
 import AsCraftman from '../screens/as-craftman'
 import VerificationScreen from '../screens/verification'
+import DetailProfileScreen from '../screens/detail-profile'
+import NotificationScreen from '../screens/notification'
 import PostJobScreen from '../screens/post-job'
+import FormPostJob from '../screens/post-job/form-post-job'
+import TransactionScreen from '../screens/transaction'
+import DetailCategory from '../screens/detailCategory'
+import ListJob from '../screens/listJob'
+import ListTukang from '../screens/listTukang'
+import AccountNumber from '../screens/account-number'
 import DetailJob from '../screens/detailJob'
 import SubmissionScreen from '../screens/submission'
 import ApplyScreen from '../screens/apply'
@@ -37,8 +45,8 @@ import OnboardingScreen from '../screens/onboarding'
 import RegisterScreen from '../screens/register'
 import LoginScreen from '../screens/login'
 import TawaranJobScreen from '../screens/tawaran-job'
-import FormPostJob from '../screens/post-job/form-post-job'
-import TransactionScreen from '../screens/transaction'
+import AsyncStorage from '@react-native-async-storage/async-storage'
+import {getUserProfile} from '../services/getUserProfile.domain'
 
 // Screens Name
 const homeName = 'Beranda'
@@ -120,9 +128,60 @@ function Home() {
 }
 
 const MainComponent = ({navigation}) => {
+  const [initialRoute, setInitialRoute] = useState('Login')
+  const [isReady, setIsReady] = useState(false)
+  const [userData, setUserData] = useState(null)
+  const [modalVisibility, setModalVisibility] = useState(false)
+
+  useEffect(() => {
+    SplashScreen.hide()
+  })
+
+  // useEffect(() => {
+  //   const checkLoggedIn = async () => {
+  //     try {
+  //       const refreshToken = await AsyncStorage.getItem('refreshToken')
+  //       return !!refreshToken
+  //     } catch (error) {
+  //       console.error('Error checking login status:', error.message)
+  //       return false
+  //     }
+  //   }
+
+  //   // Determine the initial route based on login status
+  //   const determineInitialRoute = async () => {
+  //     const isLoggedIn = await checkLoggedIn()
+  //     setInitialRoute(isLoggedIn ? 'Home' : 'Login')
+  //     setIsReady(true)
+  //   }
+
+  //   determineInitialRoute()
+  // }, [])
+
+  // useEffect(() => {
+  //   const fetchUserProfile = async () => {
+  //     try {
+  //       const profileData = await getUserProfile()
+  //       setUserData(profileData)
+  //       // Check verification status
+  //       if (!profileData.statusValidate && initialRoute === 'ReportForm') {
+  //         setModalVisibility(true)
+  //       }
+  //     } catch (error) {
+  //       console.error('Error fetching user profile:', error.message)
+  //     }
+  //   }
+
+  //   fetchUserProfile()
+  // }, [initialRoute])
+
+  // if (!isReady) {
+  //   return null
+  // }
+
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName={'Onboarding'}>
+      <Stack.Navigator initialRouteName={'Home'}>
         {/* Main Screens */}
         <Stack.Screen
           name='Onboarding'
@@ -170,6 +229,11 @@ const MainComponent = ({navigation}) => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name='DetailCategory'
+          component={DetailCategory}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name='DetailJob'
           component={DetailJob}
           options={{headerShown: false}}
@@ -190,8 +254,38 @@ const MainComponent = ({navigation}) => {
           options={{headerShown: false}}
         />
         <Stack.Screen
+          name='Notification'
+          component={NotificationScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
           name='PostJob'
           component={PostJobScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='FormPostJob'
+          component={FormPostJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='Transaction'
+          component={TransactionScreen}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='ListJob'
+          component={ListJob}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='ListTukang'
+          component={ListTukang}
+          options={{headerShown: false}}
+        />
+        <Stack.Screen
+          name='AccountNumber'
+          component={AccountNumber}
           options={{headerShown: false}}
         />
         <Stack.Screen
@@ -207,16 +301,6 @@ const MainComponent = ({navigation}) => {
         <Stack.Screen
           name='TawaranJob'
           component={TawaranJobScreen}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name='FormPostJob'
-          component={FormPostJob}
-          options={{headerShown: false}}
-        />
-        <Stack.Screen
-          name='Transaction'
-          component={TransactionScreen}
           options={{headerShown: false}}
         />
       </Stack.Navigator>

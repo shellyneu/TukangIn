@@ -35,4 +35,24 @@ export default StyleSheet.create({
     fontFamily: Fonts.MEDIUM,
     color: Color.PRIMARY,
   },
+  previewImg: {
+    width: '100%',
+    height: 200,
+    borderRadius: 14,
+  },
+  selectedValue: (status, color) => ({
+    fontSize: status ? 13 : 16,
+    fontFamily: Fonts.REGULAR,
+    color: color ? Color.GREYONE : Color.BLACK,
+    paddingVertical: status ? 15 : null,
+  }),
+  cardDropdown: {
+    backgroundColor: Color.WHITE,
+    borderWidth: 1,
+    borderColor: Color.WHITE,
+    marginTop: 10,
+    borderRadius: 14,
+    paddingVertical: 14,
+    paddingHorizontal: 18,
+  },
 })

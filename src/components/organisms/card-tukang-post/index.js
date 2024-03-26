@@ -10,10 +10,15 @@ const CardTukangPost = ({
   location,
   isPhaseTwo,
   onPress,
+  disabled,
+  customStyle,
 }) => {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.profile} onPress={onPress}>
+    <View style={[styles.container, customStyle]}>
+      <TouchableOpacity
+        style={styles.profile}
+        onPress={onPress}
+        disabled={disabled}>
         <Image source={imgSource} style={styles.img} />
         <View>
           <View style={styles.headerBox}>
@@ -26,18 +31,6 @@ const CardTukangPost = ({
           <LocationBox location={location} isPhaseTwo={true} />
         </View>
       </TouchableOpacity>
-      {isPhaseTwo ? (
-        <View style={styles.button}>
-          <TouchableOpacity style={styles.buttonOne}>
-            <Text style={styles.buttonTextOne}>Terima & Bayar</Text>
-          </TouchableOpacity>
-          <TouchableOpacity style={styles.buttonTwo}>
-            <Text style={styles.buttonTextTwo}>Lihat Profile</Text>
-          </TouchableOpacity>
-        </View>
-      ) : (
-        ''
-      )}
     </View>
   )
 }
@@ -56,6 +49,7 @@ const styles = StyleSheet.create({
   profile: {
     flexDirection: 'row',
     gap: 12,
+    alignItems: 'center',
   },
   img: {
     width: 62,

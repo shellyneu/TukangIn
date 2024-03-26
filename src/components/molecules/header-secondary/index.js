@@ -4,16 +4,21 @@ import {IcChevronLeft} from '../../../assets/icons'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {NotificationIcon} from '../..'
 
-const HeaderSecondary = ({onPressBack, sectionTitle}) => {
+const HeaderSecondary = ({
+  onPressBack,
+  sectionTitle,
+  customStyle,
+  onPressNotif,
+}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyle]}>
       <TouchableOpacity
         onPress={onPressBack}
         style={{backgroundColor: Color.WHITE, padding: 10, borderRadius: 100}}>
         <IcChevronLeft />
       </TouchableOpacity>
       <Text style={styles.sectionTitle}>{sectionTitle}</Text>
-      <NotificationIcon />
+      <NotificationIcon onPress={onPressNotif} />
     </View>
   )
 }

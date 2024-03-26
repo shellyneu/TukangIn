@@ -45,13 +45,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderWidth: 1,
-    borderColor: Color.RED,
+    borderColor: Color.ERROR,
     marginBottom: 8,
   },
   errorMsg: {
     fontSize: FontSize.dp_12,
     fontFamily: Fonts.REGULAR,
-    color: Color.RED,
+    color: Color.ERROR,
     marginBottom: 5,
   },
   containerAdd: {
