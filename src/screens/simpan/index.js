@@ -13,6 +13,7 @@ import {
   ImgCraftmanTwo,
   ImgKeramik,
   ImgKeran,
+  ImgProfileOne,
 } from '../../assets/images'
 
 const SimpanScreen = ({navigation}) => {
@@ -30,7 +31,7 @@ const SimpanScreen = ({navigation}) => {
       skillCount: 12,
       location: 'Purwokerto',
       rate: 4.9,
-      img: ImgCraftmanOne,
+      img: ImgProfileOne,
     },
     {
       id: 2,

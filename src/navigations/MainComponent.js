@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react'
 import {NavigationContainer} from '@react-navigation/native'
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
 import {createStackNavigator} from '@react-navigation/stack'
-import SplashScreen from 'react-native-splash-screen'
 import {Color, FontSize, Fonts} from '../constants'
 import {
   IcHome,
@@ -132,10 +131,6 @@ const MainComponent = ({navigation}) => {
   const [isReady, setIsReady] = useState(false)
   const [userData, setUserData] = useState(null)
   const [modalVisibility, setModalVisibility] = useState(false)
-
-  useEffect(() => {
-    SplashScreen.hide()
-  })
 
   // useEffect(() => {
   //   const checkLoggedIn = async () => {

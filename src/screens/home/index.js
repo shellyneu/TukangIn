@@ -42,6 +42,8 @@ import {
   TabBar,
 } from '../../components'
 
+import {dataJob} from '../dataJobDummy'
+
 const HomeScreen = ({navigation}) => {
   const [activeTab, setActiveTab] = useState(1)
   const [savePressed, setSavePressed] = useState(true)
@@ -53,7 +55,7 @@ const HomeScreen = ({navigation}) => {
       skillCount: 12,
       location: 'Karanglewas',
       rate: 4.9,
-      img: ImgCraftmanOne,
+      img: ImgProfileOne,
     },
     {
       id: 2,
@@ -73,33 +75,12 @@ const HomeScreen = ({navigation}) => {
     },
   ]
 
-  const dataJob = [
-    {
-      id: 1,
-      img: ImgDetailJob,
-      jobTitle: 'Ahli Cat Kusen dan Pagar',
-      location: 'Karanglewas, Kec. Jatilawang',
-      price: '420.000',
-      countSubmit: 61,
-    },
-    {
-      id: 2,
-      img: ImgKeramik,
-      jobTitle: 'Pemasangan Keramik',
-      location: 'Dukuhwaluh, Kec. Kembaran',
-      price: 'Rp720.000',
-      countSubmit: 48,
-    },
-  ]
-
   const onPressNotif = () => {
     navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
   }
 
-  const onPressCardJob = () => {
-    navigation.navigate('DetailJob', {
-      sectionTitle: 'Detail Job',
-    })
+  const onPressCardJob = jobId => {
+    navigation.navigate('DetailJob', {jobId: 1})
   }
 
   const renderSeparator = () => <View style={{width: 10, height: 10}} />
@@ -128,6 +109,7 @@ const HomeScreen = ({navigation}) => {
       countSubmit={item.countSubmit}
       savePressed={savePressed}
       onPressSave={() => setSavePressed(!savePressed)}
+      onPress={() => onPressCardJob(item.id)}
     />
   )
 

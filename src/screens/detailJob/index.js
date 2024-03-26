@@ -12,10 +12,13 @@ import {ImgDetailJob} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
 import {IcArrowRight, IcHourglass, IcPrice} from '../../assets/icons'
 import {Color, FontSize, Fonts} from '../../constants'
+import {dataJob} from '../dataJobDummy'
 
 const DetailJob = props => {
   const {route, navigation} = props
-  const {sectionTitle} = route.params
+  const {jobId} = route.params
+
+  const job = dataJob.find(item => item.id === jobId)
 
   const onPressNotif = () => {
     navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
@@ -43,26 +46,23 @@ const DetailJob = props => {
       {/* CONTENT */}
       <ScrollView>
         <View style={styles.content}>
-          <Image source={ImgDetailJob} style={styles.imgJob} />
+          <Image source={job.img} style={styles.imgJob} />
 
           <View style={styles.contentPage}>
-            <Text style={styles.title}>Ahli Cat Kusen dan Pagar</Text>
-            <LocationBox
-              isPhaseTwo={true}
-              location='Karanglewas, Kec. Jatilawang'
-            />
+            <Text style={styles.title}>{job.jobTitle}</Text>
+            <LocationBox isPhaseTwo={true} location={job.location} />
           </View>
 
           <View style={styles.job}>
             <JobSet
               iconJob={<IcPrice />}
               titleJob='Harga'
-              descJob='Rp 420.000'
+              descJob={job.price}
             />
             <JobSet
               iconJob={<IcHourglass />}
               titleJob='Waktu Pengerjaan'
-              descJob='3 Hari'
+              descJob={job.duration}
             />
           </View>
 
@@ -81,20 +81,12 @@ const DetailJob = props => {
 
             <View>
               <Text style={styles.contentTitle(false)}>Deskripsi</Text>
-              <Text style={styles.contentDesc}>
-                Menguasai seni pengecatan kusen dan pagar, saya memiliki
-                keterampilan dalam pemilihan cat yang tepat, persiapan
-                permukaan, dan penerapan cat dengan presisi.
-              </Text>
+              <Text style={styles.contentDesc}>{job.description}</Text>
             </View>
 
             <View>
               <Text style={styles.contentTitle(false)}>List Pekerjaan</Text>
-              <ListJob list='Pemilihan cat yang untuk kusen dan pagar.' />
-              <ListJob list='Membersihkan dan mempersiapkan permukaan.' />
-              <ListJob list='Penggunaan primer untuk daya lekat.' />
-              <ListJob list='Melakukan pengecatan dengan rapi.' />
-              <ListJob list='Menyempurnakan hasil dan memberikan perlindungan tambahan.' />
+              <ListJob list={job.tasks} />
             </View>
           </View>
         </View>

@@ -28,7 +28,12 @@ import {
   TestimonialCard,
 } from '../../components'
 import {Color, FontSize, Fonts} from '../../constants'
-import {ImgJobOne, ImgProfileOne, ImgSkillOne} from '../../assets/images'
+import {
+  ImgJobOne,
+  ImgProfileOne,
+  ImgSKillTwo,
+  ImgSkillOne,
+} from '../../assets/images'
 import PriceBox from '../../components/atomics/price-box'
 
 const DetailTukang = props => {
@@ -38,11 +43,12 @@ const DetailTukang = props => {
   const [isPhaseTwo, setIsPhaseTwo] = useState(true)
   const [typeScreen, setTypeScreen] = useState(0)
 
-  const OnClickSkill = () => {
+  const OnClickSkill = detailType => {
     setIsPhaseTwo(false)
     setTypeScreen(1)
     navigation.navigate('DetailTukang', {
       sectionTitle: 'Keahlian',
+      detailType: detailType,
     })
   }
 
@@ -63,24 +69,28 @@ const DetailTukang = props => {
       icon: <IcCompassBlue />,
       title: 'Pasang',
       price: '150K - 500K',
+      detailType: 'Pasang',
     },
     {
       id: 2,
       icon: <IcDropletsBlue />,
       title: 'Saluran',
       price: '150K - 500K',
+      detailType: 'Saluran',
     },
     {
-      id: 1,
+      id: 3,
       icon: <IcPaletteBlue />,
       title: 'Pengecatan',
       price: '150K - 500K',
+      detailType: 'Pengecatan',
     },
     {
-      id: 1,
+      id: 4,
       icon: <IcGridLayoutBlue />,
       title: 'Listrik',
       price: '150K - 500K',
+      detailType: 'Listrik',
     },
   ]
 
@@ -94,7 +104,7 @@ const DetailTukang = props => {
         iconSkill={item.icon}
         titleSkill={item.title}
         price={item.price}
-        onPress={OnClickSkill}
+        onPress={() => OnClickSkill(item.detailType)}
       />
     )
   }
@@ -153,47 +163,179 @@ const DetailTukang = props => {
   }
 
   const SkillSection = () => {
-    return (
-      <View>
-        <View style={styles.headerSkill}>
-          <Image source={ImgProfileOne} style={styles.imageProfile(true)} />
+    const {detailType} = route.params
+    switch (detailType) {
+      case 'Saluran':
+        return (
           <View>
-            <Text style={styles.titleSkill}>Perbaikan Saluran Air</Text>
-            <Text style={styles.priceText}>
-              Mulai : {''}
-              <Text style={styles.priceText}>200k - 1000k</Text>
-            </Text>
-          </View>
-        </View>
+            <View style={styles.headerSkill}>
+              <Image source={ImgProfileOne} style={styles.imageProfile(true)} />
+              <View>
+                <Text style={styles.titleSkill}>Perbaikan Saluran Air</Text>
+                <Text style={styles.priceText}>
+                  Mulai : {''}
+                  <Text style={styles.priceText}>200k - 1000k</Text>
+                </Text>
+              </View>
+            </View>
 
-        <View style={{marginTop: 24}}>
-          <Text style={styles.sectionText}>Deskripsi</Text>
-          <Text style={styles.descText}>
-            Dengan keahlian dalam konstruksi dan perbaikan, saya telah sukses
-            menangani berbagai proyek, mulai dari pemasangan struktur, perbaikan
-            pipa, hingga penyelesaian masalah listrik.
-          </Text>
-        </View>
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Deskripsi</Text>
+              <Text style={styles.descText}>
+                Dengan keahlian dalam konstruksi dan perbaikan, saya telah
+                sukses menangani berbagai proyek, mulai dari pemasangan
+                struktur, perbaikan pipa, hingga penyelesaian masalah listrik.
+              </Text>
+            </View>
 
-        <View style={{marginTop: 24}}>
-          <Text style={styles.sectionText}>Pekerjaan Terkait</Text>
-          <View style={{gap: 16}}>
-            <CardSkill
-              imgSource={ImgSkillOne}
-              titleSkill='Perbaikan Saluran Air Sepanjang 25 Meter'
-              price='1.520.000'
-              rate='4.7'
-            />
-            <CardSkill
-              imgSource={ImgSkillOne}
-              titleSkill='Perbaikan Saluran Air Sepanjang 25 Meter'
-              price='1.520.000'
-              rate='4.7'
-            />
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Pekerjaan Terkait</Text>
+              <View style={{gap: 16}}>
+                <CardSkill
+                  imgSource={ImgSKillTwo}
+                  titleSkill='Perbaikan Saluran Air Sepanjang 25 Meter'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+                <CardSkill
+                  imgSource={ImgSkillOne}
+                  titleSkill='Perbaikan Saluran Air Sepanjang 25 Meter'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+              </View>
+            </View>
           </View>
-        </View>
-      </View>
-    )
+        )
+      case 'Pasang':
+        return (
+          <View>
+            <View style={styles.headerSkill}>
+              <Image source={ImgProfileOne} style={styles.imageProfile(true)} />
+              <View>
+                <Text style={styles.titleSkill}>Pemasangan Bagian Rumah</Text>
+                <Text style={styles.priceText}>
+                  Mulai : {''}
+                  <Text style={styles.priceText}>200k - 1000k</Text>
+                </Text>
+              </View>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Deskripsi</Text>
+              <Text style={styles.descText}>
+                Dengan keahlian dalam konstruksi dan perbaikan, saya telah
+                sukses menangani berbagai proyek, mulai dari pemasangan
+                struktur, perbaikan pipa, hingga penyelesaian masalah listrik.
+              </Text>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Pekerjaan Terkait</Text>
+              <View style={{gap: 16}}>
+                <CardSkill
+                  imgSource={ImgSkillOne}
+                  titleSkill='Pemasangan Keramik'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+                <CardSkill
+                  imgSource={ImgSkillOne}
+                  titleSkill='Pemasangan Keramik'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+              </View>
+            </View>
+          </View>
+        )
+      case 'Pengecatan':
+        return (
+          <View>
+            <View style={styles.headerSkill}>
+              <Image source={ImgProfileOne} style={styles.imageProfile(true)} />
+              <View>
+                <Text style={styles.titleSkill}>Pengecatan Rumah</Text>
+                <Text style={styles.priceText}>
+                  Mulai : {''}
+                  <Text style={styles.priceText}>200k - 1000k</Text>
+                </Text>
+              </View>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Deskripsi</Text>
+              <Text style={styles.descText}>
+                Dengan keahlian dalam konstruksi dan perbaikan, saya telah
+                sukses menangani berbagai proyek, mulai dari pemasangan
+                struktur, perbaikan pipa, hingga penyelesaian masalah listrik.
+              </Text>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Pekerjaan Terkait</Text>
+              <View style={{gap: 16}}>
+                <CardSkill
+                  imgSource={ImgSkillOne}
+                  titleSkill='Pengecatan Luar Rumah'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+                <CardSkill
+                  imgSource={ImgSKillTwo}
+                  titleSkill='Pengecatan Dalam Rumah'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+              </View>
+            </View>
+          </View>
+        )
+      case 'Listrik':
+        return (
+          <View>
+            <View style={styles.headerSkill}>
+              <Image source={ImgProfileOne} style={styles.imageProfile(true)} />
+              <View>
+                <Text style={styles.titleSkill}>Kelistrikan</Text>
+                <Text style={styles.priceText}>
+                  Mulai : {''}
+                  <Text style={styles.priceText}>200k - 1000k</Text>
+                </Text>
+              </View>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Deskripsi</Text>
+              <Text style={styles.descText}>
+                Dengan keahlian dalam konstruksi dan perbaikan, saya telah
+                sukses menangani berbagai proyek, mulai dari pemasangan
+                struktur, perbaikan pipa, hingga penyelesaian masalah listrik.
+              </Text>
+            </View>
+
+            <View style={{marginTop: 24}}>
+              <Text style={styles.sectionText}>Pekerjaan Terkait</Text>
+              <View style={{gap: 16}}>
+                <CardSkill
+                  imgSource={ImgSKillTwo}
+                  titleSkill='Pemasangan Lampu Teras'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+                <CardSkill
+                  imgSource={ImgSKillTwo}
+                  titleSkill='Perbaikan Stop Kontak'
+                  price='1.520.000'
+                  rate='4.7'
+                />
+              </View>
+            </View>
+          </View>
+        )
+      default:
+        return null
+    }
   }
 
   const numColumns = 2

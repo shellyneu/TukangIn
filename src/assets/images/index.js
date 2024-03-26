@@ -1,5 +1,4 @@
 /* eslint-disable prettier/prettier */
-import ImgSplashScreen from './img-splashScreen'
 import ImgSplash from './img-splash.png'
 import ImgUser from './img-user.png'
 
@@ -58,5 +57,4 @@ export {
   ImgKeramik,
   ImgPostJob,
   ImgTesti,
-  ImgSplashScreen,
 }

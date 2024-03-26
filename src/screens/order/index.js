@@ -7,7 +7,12 @@ import {
   SearchBar,
   TabBar,
 } from '../../components'
-import {ImgPostJob} from '../../assets/images'
+import {
+  ImgKeramik,
+  ImgPostJob,
+  ImgSKillTwo,
+  ImgSkillOne,
+} from '../../assets/images'
 import {IcNoneFiles} from '../../assets/icons'
 
 const OrderScreen = ({navigation}) => {
@@ -15,6 +20,7 @@ const OrderScreen = ({navigation}) => {
   const [loading, setLoading] = useState(true)
   const [showCardJobPost, setShowCardJobPost] = useState(false)
   const [showTawaranValue, setShowTawaranValue] = useState(false)
+  const [jobs, setJobs] = useState([])
 
   const handleTabPress = tabIndex => {
     setActiveTab(tabIndex)
@@ -25,6 +31,40 @@ const OrderScreen = ({navigation}) => {
   const onPressNotif = () => {
     navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
   }
+
+  useEffect(() => {
+    const fetchedJobs = [
+      {
+        id: 1,
+        imgSource: ImgPostJob,
+        jobTitle: 'Ahli Cat Kusen dan Pagar',
+        location: 'Karanglewas, Kec. Jatilawang',
+        price: '420.000',
+        countSubmit: '3',
+        statusTitle: 1,
+      },
+      {
+        id: 2,
+        imgSource: ImgKeramik,
+        jobTitle: 'Ahli Keramik',
+        location: 'Karangloas, Kec. Jatilawang',
+        price: '450.000',
+        countSubmit: '3',
+        statusTitle: 2,
+      },
+      {
+        id: 3,
+        imgSource: ImgSKillTwo,
+        jobTitle: 'Ahli Pemasangan',
+        location: 'Karangpasir, Kec. Jatilawang',
+        price: '450.000',
+        countSubmit: '3',
+        statusTitle: 3,
+      },
+    ]
+    setJobs(fetchedJobs)
+    setShowCardJobPost(true)
+  }, [])
 
   useEffect(() => {
     setShowCardJobPost(true)
@@ -60,17 +100,21 @@ const OrderScreen = ({navigation}) => {
       />
 
       <ScrollView>
-        {showCardJobPost && (
-          <CardJobPost
-            imgSource={ImgPostJob}
-            jobTitle={'Ahli Cat Kusen dan Pagar'}
-            location={'Karanglewas, Kec. Jatilawang'}
-            price={'420.000'}
-            countSubmit={'3'}
-            statusTitle={'rekrut'}
-            onPress={() => navigation.navigate('DetailJobUser')}
-          />
-        )}
+        {showCardJobPost &&
+          jobs.map(job => (
+            <View style={{marginVertical: 5}}>
+              <CardJobPost
+                key={job.id}
+                imgSource={job.imgSource}
+                jobTitle={job.jobTitle}
+                location={job.location}
+                price={job.price}
+                countSubmit={job.countSubmit}
+                statusTitle={job.statusTitle}
+                onPress={() => navigation.navigate('DetailJobUser')}
+              />
+            </View>
+          ))}
 
         {showTawaranValue && (
           <View style={styles.containerNone}>
