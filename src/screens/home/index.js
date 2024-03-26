@@ -75,12 +75,33 @@ const HomeScreen = ({navigation}) => {
     },
   ]
 
+  const dataJob = [
+    {
+      id: 1,
+      img: ImgDetailJob,
+      jobTitle: 'Ahli Cat Kusen dan Pagar',
+      location: 'Karanglewas, Kec. Jatilawang',
+      price: '420.000',
+      countSubmit: 61,
+    },
+    {
+      id: 2,
+      img: ImgKeramik,
+      jobTitle: 'Pemasangan Keramik',
+      location: 'Dukuhwaluh, Kec. Kembaran',
+      price: 'Rp720.000',
+      countSubmit: 48,
+    },
+  ]
+
   const onPressNotif = () => {
     navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
   }
 
-  const onPressCardJob = jobId => {
-    navigation.navigate('DetailJob', {jobId: 1})
+  const onPressCardJob = () => {
+    navigation.navigate('DetailJob', {
+      sectionTitle: 'Detail Job',
+    })
   }
 
   const renderSeparator = () => <View style={{width: 10, height: 10}} />
@@ -109,7 +130,6 @@ const HomeScreen = ({navigation}) => {
       countSubmit={item.countSubmit}
       savePressed={savePressed}
       onPressSave={() => setSavePressed(!savePressed)}
-      onPress={() => onPressCardJob(item.id)}
     />
   )
 

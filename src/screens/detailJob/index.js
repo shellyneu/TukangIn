@@ -19,6 +19,7 @@ const DetailJob = props => {
   const {jobId} = route.params
 
   const job = dataJob.find(item => item.id === jobId)
+  ca4e1c54ed9e
 
   const onPressNotif = () => {
     navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
@@ -81,19 +82,26 @@ const DetailJob = props => {
 
             <View>
               <Text style={styles.contentTitle(false)}>Deskripsi</Text>
-              <Text style={styles.contentDesc}>{job.description}</Text>
+              <Text style={styles.contentDesc}>
+                Menguasai seni pengecatan kusen dan pagar, saya memiliki
+                keterampilan dalam pemilihan cat yang tepat, persiapan
+                permukaan, dan penerapan cat dengan presisi.
+              </Text>
             </View>
 
-            <View>
-              <Text style={styles.contentTitle(false)}>List Pekerjaan</Text>
-              <ListJob list={job.tasks} />
+            <View style={{paddingTop: 20}}>
+              <Text style={styles.contentTitle}>List Pekerjaan</Text>
+              <ListJob list='Pemilihan cat yang untuk kusen dan pagar.' />
+              <ListJob list='Membersihkan dan mempersiapkan permukaan.' />
+              <ListJob list='Penggunaan primer untuk daya lekat.' />
+              <ListJob list='Melakukan pengecatan dengan rapi.' />
+              <ListJob list='Menyempurnakan hasil dan memberikan perlindungan tambahan.' />
             </View>
           </View>
         </View>
       </ScrollView>
 
       <ButtonMain
-        isBackgroundVis={true}
         text='Ajukan Diri'
         onPress={() => {
           navigation.navigate('Apply')
