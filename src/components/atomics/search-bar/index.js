@@ -3,11 +3,16 @@ import React from 'react'
 import {IcSearch} from '../../../assets/icons'
 import {FontSize, Fonts, Color} from '../../../constants'
 
-const SearchBar = ({placeholder}) => {
+const SearchBar = ({placeholder, customStyle, value, onChangeText}) => {
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, customStyle]}>
       <IcSearch />
-      <TextInput placeholder={placeholder} style={styles.inputField} />
+      <TextInput
+        placeholder={placeholder}
+        style={styles.inputField}
+        value={value}
+        onChangeText={onChangeText}
+      />
     </View>
   )
 }

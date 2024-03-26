@@ -10,7 +10,7 @@ export default StyleSheet.create({
     backgroundColor: Color.BGSCREEN,
     // flex: 1,
     paddingHorizontal: 16,
-    marginTop: 20,
+    marginVertical: 20,
   },
   identityBox: {alignItems: 'center', marginTop: 14, gap: 5},
   name: {
@@ -36,8 +36,8 @@ export default StyleSheet.create({
   },
   footer: {
     backgroundColor: Color.WHITE,
-    paddingBottom: 20,
-    paddingTop: 15,
+    paddingBottom: 10,
+    paddingTop: 10,
     paddingHorizontal: 16,
     elevation: 5,
   },

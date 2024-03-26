@@ -1,13 +1,33 @@
-import {View, Text, StyleSheet, Image, TouchableOpacity} from 'react-native'
+import {
+  View,
+  Text,
+  StyleSheet,
+  Image,
+  TouchableOpacity,
+  Touchable,
+} from 'react-native'
 import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
 import {ImgCraftmanOne} from '../../../assets/images'
 import {LocationBox, RatingsBox} from '../..'
+import {IcSave, IcSaveWhite} from '../../../assets/icons'
 
-const CardTukang = ({imgSource, name, skillCount, location, rate, onPress}) => {
+const CardTukang = ({
+  imgSource,
+  name,
+  skillCount,
+  location,
+  rate,
+  onPress,
+  customStyle,
+  imgCustomStyle,
+}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
-      <Image source={imgSource} style={styles.image} />
+    <TouchableOpacity style={[styles.container, customStyle]} onPress={onPress}>
+      <Image source={imgSource} style={[styles.image, imgCustomStyle]} />
+      <TouchableOpacity style={{position: 'absolute', right: 10, top: 10}}>
+        <IcSaveWhite />
+      </TouchableOpacity>
       <View style={styles.descBox}>
         <View style={{gap: 3}}>
           <Text style={styles.name}>{name}</Text>

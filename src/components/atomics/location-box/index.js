@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
     color: Color.GREYONE,
   },
   textBig: {
-    fontSize: FontSize.dp_16,
+    fontSize: FontSize.dp_14,
     fontFamily: Fonts.REGULAR,
     color: Color.GREYONE,
   },

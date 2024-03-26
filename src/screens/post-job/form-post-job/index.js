@@ -1,14 +1,17 @@
-import {View, Text, ScrollView, TouchableOpacity} from 'react-native'
+import {View, Text, ScrollView, TouchableOpacity, Image} from 'react-native'
 import React, {useState} from 'react'
+import {launchImageLibrary} from 'react-native-image-picker'
 import styles from './styles'
 import {
   ButtonMain,
   HeaderSecondary,
   InputField,
   InputFieldMain,
+  InputFieldSearch,
   PhotoInput,
 } from '../../../components'
-import {IcAddImg, IcPlus} from '../../../assets/icons'
+import {FontSize, Fonts, Color} from '../../../constants'
+import {IcAddImage, IcPlus} from '../../../assets/icons'
 
 const FormPostJob = props => {
   const {route, navigation} = props
@@ -17,6 +20,10 @@ const FormPostJob = props => {
   const [inputTitleJob, setInputTitleJob] = useState('')
   const [inputTitleError, setInputTitleJobError] = useState('')
   const [inputTitleStatus, setInputTitleJobStatus] = useState(false)
+
+  const [inputJenisJob, setInputJenisJob] = useState('')
+  const [inputJenisJobError, setInputJenisJobError] = useState('')
+  const [inputJenisJobStatus, setInputJenisJobStatus] = useState(false)
 
   const [inputLocationJob, setInputLocationJob] = useState('')
   const [inputLocationError, setInputLocationJobError] = useState('')
@@ -43,6 +50,33 @@ const FormPostJob = props => {
   const [inputDescriptionStatus, setInputDescriptionJobStatus] = useState(false)
 
   const [showAddContainer, setShowAddContainer] = useState(true)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState('')
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [imageName, setImageName] = useState()
+
+  const category = [
+    {
+      id: 1,
+      name: 'Pasang',
+    },
+    {
+      id: 2,
+      name: 'Saluran',
+    },
+    {
+      id: 3,
+      name: 'Pengecat',
+    },
+    {
+      id: 4,
+      name: 'Lainnya',
+    },
+  ]
+
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
 
   const OnChangeTitleJob = text => {
     setInputTitleJob(text)
@@ -75,6 +109,7 @@ const FormPostJob = props => {
   const OnClickSend = () => {
     if (
       inputTitleJob.length === 0 ||
+      selectedCategory.length === 0 ||
       inputLocationJob.length === 0 ||
       inputLinkGMaps.length === 0 ||
       inputPriceJob.length === 0 ||
@@ -83,6 +118,7 @@ const FormPostJob = props => {
       inputDescriptionJob.length === 0
     ) {
       setInputTitleJobError('Tidak boleh kosong')
+      setInputJenisJobError('Tidak boleh kosong')
       setInputLocationJobError('Tidak boleh kosong')
       setInputLinkGMapsError('Tidak boleh kosong')
       setInputPriceJobError('Tidak boleh kosong')
@@ -90,6 +126,7 @@ const FormPostJob = props => {
       setInputListJobError('Tidak boleh kosong')
       setInputDescriptionJobError('Tidak boleh kosong')
       setInputTitleJobStatus(true)
+      setInputJenisJobStatus(true)
       setInputLocationJobStatus(true)
       setInputLinkGMapsStatus(true)
       setInputPriceJobStatus(true)
@@ -98,6 +135,7 @@ const FormPostJob = props => {
       setInputDescriptionJobStatus(true)
     } else {
       setInputTitleJobError('')
+      setInputJenisJobError('')
       setInputLocationJobError('')
       setInputLinkGMapsError('')
       setInputPriceJobError('')
@@ -105,6 +143,7 @@ const FormPostJob = props => {
       setInputListJobError('')
       setInputDescriptionJobError('')
       setInputTitleJobStatus(false)
+      setInputJenisJobStatus(false)
       setInputLocationJobStatus(false)
       setInputLinkGMapsStatus(false)
       setInputPriceJobStatus(false)
@@ -112,6 +151,15 @@ const FormPostJob = props => {
       setInputListJobStatus(false)
       setInputDescriptionJobStatus(false)
     }
+
+    console.log(inputTitleJob, 'judul')
+    console.log(selectedCategory, 'jenis')
+    console.log(inputLocationJob, 'alamat')
+    console.log(inputLinkGMaps, 'maps')
+    console.log(inputPriceJob, 'harga')
+    console.log(inputTimeJob, 'waktu')
+    console.log(inputListJob, 'list')
+    console.log(inputDescriptionJob, 'deskripsi')
   }
 
   const OnPressAddList = () => {
@@ -124,6 +172,39 @@ const FormPostJob = props => {
     setInputListJob(updatedList)
   }
 
+  const onPressListCategory = _value => {
+    setSelectedCategory(_value)
+    setIsDropdownOpen(false)
+    if (inputJenisJob !== 0) {
+      setInputJenisJobStatus(false)
+    }
+  }
+
+  const filteredCategory = category.filter(category =>
+    category.name.toLowerCase().includes(inputJenisJob.toLowerCase()),
+  )
+
+  const openImagePicker = () => {
+    const options = {
+      mediaType: 'photo',
+      includeBase64: false,
+      maxHeight: 2000,
+      maxWidth: 2000,
+    }
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker')
+      } else if (response.error) {
+        console.log('Image picker error: ', response.error)
+      } else {
+        let imageUri = response.uri || response.assets?.[0]?.uri
+        setSelectedImage(imageUri)
+        setImageName(response.fileName || 'Image') // Menggunakan nama file jika tersedia, jika tidak, gunakan 'Image'
+      }
+    })
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
@@ -131,6 +212,7 @@ const FormPostJob = props => {
         onPressBack={() => navigation.goBack('Profile')}
         sectionTitle={sectionTitle}
         customStyle={{paddingHorizontal: 16}}
+        onPressNotif={onPressNotif}
       />
 
       {/* CONTENTS */}
@@ -145,6 +227,29 @@ const FormPostJob = props => {
               errorMsg={inputTitleError}
               showErrorMessage={inputTitleStatus}
               isError={inputTitleStatus}
+            />
+            <InputFieldSearch
+              titleField='Jenis Pekerjaan'
+              placeholderInput='Pilih Jenis Pekerjaan..'
+              placeholderTouch='Pilih Jenis Pekerjaan..'
+              value={inputJenisJob}
+              onChangeInput={text => setInputJenisJob(text)}
+              data={filteredCategory}
+              keyExtractor={item => item.id}
+              isDropdownVisible={isDropdownOpen}
+              selectedCategory={selectedCategory}
+              onPressSelectItem={onPressListCategory}
+              onOpenDropdown={() => {
+                setIsDropdownOpen(true)
+                setInputJenisJobError('')
+              }}
+              onCloseDropdown={() => {
+                setIsDropdownOpen(false)
+                setInputJenisJobError('Tidak boleh kosong')
+              }}
+              errorMsg={inputJenisJobError}
+              showErrorMessage={inputJenisJobStatus}
+              isError={inputJenisJobStatus}
             />
             <InputFieldMain
               titleField='Alamat Lokasi'
@@ -216,7 +321,14 @@ const FormPostJob = props => {
               isError={inputDescriptionStatus}
             />
 
-            <PhotoInput icon={<IcAddImg />} title='Upload Ulang Photo' />
+            <PhotoInput
+              icon={<IcAddImage />}
+              title='Upload Photo'
+              onPress={openImagePicker}
+            />
+            {selectedImage && (
+              <Image source={{uri: selectedImage}} style={styles.previewImg} />
+            )}
           </View>
         </View>
       </ScrollView>
