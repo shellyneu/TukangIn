@@ -1,17 +1,23 @@
-import {View, Text, ScrollView} from 'react-native'
-import React from 'react'
+import {View, Text, ScrollView, Image} from 'react-native'
+import React, {useState} from 'react'
 import styles from './styles'
 import {
   ButtonMain,
   CardBank,
+  DetailTransaction,
   HeaderSecondary,
   PhotoInput,
 } from '../../components'
+import {Color, FontSize, Fonts} from '../../constants'
 import {IcAddFiles, IcBCA, IcGopay, IcOVO} from '../../assets/icons'
+import {launchImageLibrary} from 'react-native-image-picker'
 
 const TransactionScreen = props => {
   const {route, navigation} = props
   // const {sectionTitle} = route.params
+
+  const [selectedImage, setSelectedImage] = useState(null)
+  const [imageName, setImageName] = useState(null)
 
   const prosesList = [
     {
@@ -52,16 +58,40 @@ const TransactionScreen = props => {
     },
   ]
 
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
+  const openImagePicker = () => {
+    const options = {
+      mediaType: 'photo',
+      includeBase64: false,
+      maxHeight: 2000,
+      maxWidth: 2000,
+    }
+
+    launchImageLibrary(options, response => {
+      if (response.didCancel) {
+        console.log('User cancelled image picker')
+      } else if (response.error) {
+        console.log('Image picker error: ', response.error)
+      } else {
+        let imageUri = response.uri || response.assets?.[0]?.uri
+        setSelectedImage(imageUri)
+        setImageName(response.fileName || 'Image') // Menggunakan nama file jika tersedia, jika tidak, gunakan 'Image'
+      }
+    })
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
-      <View style={{paddingHorizontal: 16}}>
-        <HeaderSecondary
-          onPressBack={() => navigation.goBack()}
-          sectionTitle='Transaksi'
-          // customStyle={{paddingHorizontal: 16}}
-        />
-      </View>
+      <HeaderSecondary
+        onPressBack={() => navigation.goBack()}
+        sectionTitle='Transaksi'
+        customStyle={{paddingHorizontal: 16}}
+        onPressNotif={onPressNotif}
+      />
 
       {/* CONTENTS */}
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -132,13 +162,19 @@ const TransactionScreen = props => {
               titleField='Bukti Pembayaran'
               icon={<IcAddFiles />}
               title='Upload File'
+              onPress={openImagePicker}
             />
+            {selectedImage && (
+              <Image source={{uri: selectedImage}} style={styles.previewImg} />
+            )}
           </View>
         </View>
       </ScrollView>
 
       {/* FOOTER */}
-      <ButtonMain text='Kirim Bukti' />
+      <View style={styles.footer}>
+        <ButtonMain text='Kirim Bukti' />
+      </View>
     </View>
   )
 }

@@ -23,4 +23,25 @@ export default StyleSheet.create({
     fontFamily: Fonts.MEDIUM,
     color: Color.BLACK,
   },
+  containerNone: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  textNoneBox: {
+    gap: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 17,
+  },
+  titleNone: {
+    fontSize: FontSize.dp_20,
+    fontFamily: Fonts.MEDIUM,
+    color: Color.BLACK,
+  },
+  descNone: {
+    fontSize: FontSize.dp_14,
+    fontFamily: Fonts.REGULAR,
+    color: Color.GREYONE,
+    textAlign: 'center',
+  },
 })

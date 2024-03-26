@@ -66,12 +66,18 @@ const TawaranJobScreen = ({navigation}) => {
     }
   }
 
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
   return (
     <View style={styles.containerMain}>
       {/* HEADER */}
       <HeaderSecondary
         onPressBack={() => navigation.goBack()}
         sectionTitle='Tawaran Pekerjaan'
+        onPressNotif={onPressNotif}
+        customStyle={{paddingHorizontal: 16}}
       />
 
       {/* CONTENTS */}
@@ -115,13 +121,17 @@ const TawaranJobScreen = ({navigation}) => {
             showErrorMessage={lokasiErrorStatus}
             isError={lokasiErrorStatus}
           />
-          <PhotoInput icon={<IcAddImg />} placeholder='Upload Photo' />
+          <PhotoInput icon={<IcAddImg />} title='Upload Photo' />
         </View>
       </ScrollView>
 
       {/* FOOTER */}
       <View>
-        <ButtonMain text='Kirimkan Sekarang' onPress={OnButtonClickSend} />
+        <ButtonMain
+          text='Kirimkan Sekarang'
+          onPress={OnButtonClickSend}
+          isBackgroundVis={true}
+        />
       </View>
     </View>
   )

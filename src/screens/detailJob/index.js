@@ -1,4 +1,4 @@
-import {View, Text, Image} from 'react-native'
+import {View, Text, Image, TouchableOpacity, Linking} from 'react-native'
 import React from 'react'
 import styles from './styles'
 import {
@@ -10,15 +10,34 @@ import {
 } from '../../components'
 import {ImgDetailJob} from '../../assets/images'
 import {ScrollView} from 'react-native-gesture-handler'
-import {IcHourglass, IcPrice} from '../../assets/icons'
+import {IcArrowRight, IcHourglass, IcPrice} from '../../assets/icons'
+import {Color, FontSize, Fonts} from '../../constants'
 
-const DetailJob = ({navigation}) => {
+const DetailJob = props => {
+  const {route, navigation} = props
+  const {sectionTitle} = route.params
+
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
+  const mapLinkTapped = () => {
+    const url = 'https://maps.app.goo.gl/h8SAjDVkykjAHye96'
+    Linking.canOpenURL(url).then(supported => {
+      if (supported) {
+        return Linking.openURL(url)
+      }
+    })
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
       <HeaderSecondary
         onPressBack={() => navigation.goBack()}
         sectionTitle='Pekerjaan'
+        onPressNotif={onPressNotif}
+        customStyle={{paddingHorizontal: 16}}
       />
 
       {/* CONTENT */}
@@ -47,9 +66,21 @@ const DetailJob = ({navigation}) => {
             />
           </View>
 
-          <View style={{paddingHorizontal: 16, paddingTop: 20}}>
+          <View style={{paddingHorizontal: 16, paddingTop: 20, gap: 20}}>
+            <View style={styles.linkBox}>
+              <View style={styles.linkHeader}>
+                <Text style={styles.contentTitle(true)}>Link Location</Text>
+                <IcArrowRight />
+              </View>
+              <TouchableOpacity onPress={mapLinkTapped}>
+                <Text style={styles.contentDesc}>
+                  https://maps.app.goo.gl/h8SAjDVkykjAHye96
+                </Text>
+              </TouchableOpacity>
+            </View>
+
             <View>
-              <Text style={styles.contentTitle}>Deskripsi</Text>
+              <Text style={styles.contentTitle(false)}>Deskripsi</Text>
               <Text style={styles.contentDesc}>
                 Menguasai seni pengecatan kusen dan pagar, saya memiliki
                 keterampilan dalam pemilihan cat yang tepat, persiapan
@@ -57,8 +88,8 @@ const DetailJob = ({navigation}) => {
               </Text>
             </View>
 
-            <View style={{paddingTop: 20}}>
-              <Text style={styles.contentTitle}>List Pekerjaan</Text>
+            <View>
+              <Text style={styles.contentTitle(false)}>List Pekerjaan</Text>
               <ListJob list='Pemilihan cat yang untuk kusen dan pagar.' />
               <ListJob list='Membersihkan dan mempersiapkan permukaan.' />
               <ListJob list='Penggunaan primer untuk daya lekat.' />
@@ -70,6 +101,7 @@ const DetailJob = ({navigation}) => {
       </ScrollView>
 
       <ButtonMain
+        isBackgroundVis={true}
         text='Ajukan Diri'
         onPress={() => {
           navigation.navigate('Apply')

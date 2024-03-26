@@ -6,11 +6,16 @@ import {ImgUser} from '../../assets/images'
 import {IcRisk} from '../../assets/icons'
 
 const ApplyScreen = ({navigation}) => {
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
   return (
     <View style={styles.mainBody}>
       <HeaderSecondary
         onPressBack={() => navigation.goBack('DetailJOb')}
         sectionTitle='Ajukan Diri'
+        onPressNotif={onPressNotif}
       />
       <View style={styles.body}>
         <IcRisk style={styles.icon} />

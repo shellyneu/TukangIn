@@ -4,8 +4,14 @@ import {FontSize, Fonts, Color} from '../../constants'
 export default StyleSheet.create({
   mainBody: {
     backgroundColor: Color.BGSCREEN,
-    height: '100%',
-    flexDirection: 'column',
+    flex: 1,
+  },
+  content: {
+    flex: 1,
+    justifyContent: 'space-between',
+    paddingHorizontal: 16,
+    marginVertical: 20,
+    width: '100%',
   },
   subject: {
     fontSize: FontSize.dp_24,
@@ -34,5 +40,18 @@ export default StyleSheet.create({
     fontSize: FontSize.dp_18,
     fontFamily: Fonts.MEDIUM,
     color: Color.BLACK,
+  },
+  previewImg: {
+    width: '100%',
+    height: 200,
+    borderRadius: 14,
+  },
+  footer: {
+    // justifyContent: 'flex-end',
+    backgroundColor: Color.WHITE,
+    paddingBottom: 20,
+    paddingTop: 15,
+    paddingHorizontal: 16,
+    elevation: 5,
   },
 })

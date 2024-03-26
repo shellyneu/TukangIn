@@ -14,7 +14,7 @@ export default ButtonThree
 
 const styles = StyleSheet.create({
   container: {
-    width: 154,
+    width: 190,
     paddingVertical: 12,
     borderRadius: 30,
     backgroundColor: Color.PRIMARY,

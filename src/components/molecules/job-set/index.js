@@ -19,12 +19,12 @@ export default JobSet
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 10,
-    paddingHorizontal: 25,
+    paddingHorizontal: 15,
     borderRadius: 10,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 15,
-    // width: 155,
+    // width: 175,
     backgroundColor: Color.WHITE,
   },
   textTitle: {

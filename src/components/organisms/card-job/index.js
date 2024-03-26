@@ -55,6 +55,7 @@ const styles = StyleSheet.create({
     padding: 12,
     flexDirection: 'row',
     gap: 12,
+    marginBottom: 10,
   },
   img: {width: 62, height: 67, borderRadius: 10},
   headerBox: {

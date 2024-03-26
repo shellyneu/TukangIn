@@ -1,11 +1,15 @@
 import {View, Text, StyleSheet, TextInput} from 'react-native'
 import {FontSize, Fonts, Color} from '../../../constants'
 
-const ItemInput = ({subject, placeholder}) => {
+const ItemInput = ({subject, placeholder, editable}) => {
   return (
     <View>
       <Text style={styles.subject}>{subject}</Text>
-      <TextInput style={styles.input} placeholder={placeholder} />
+      <TextInput
+        style={styles.input}
+        placeholder={placeholder}
+        editable={editable}
+      />
     </View>
   )
 }

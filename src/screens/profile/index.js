@@ -11,6 +11,7 @@ import styles from './styles'
 import NotificationIcon from '../../components/atomics/notification-icon'
 import {
   IcAsCraftman,
+  IcCreditCard,
   IcDeleteAccount,
   IcHelpCenter,
   IcJobPost,
@@ -21,6 +22,7 @@ import {
 } from '../../assets/icons'
 import {ImgUser} from '../../assets/images'
 import {ItemProfile} from '../../components'
+import AsyncStorage from '@react-native-async-storage/async-storage'
 
 const ProfileScreen = ({navigation}) => {
   const sendWhatsApp = () => {
@@ -48,6 +50,20 @@ const ProfileScreen = ({navigation}) => {
     }
   }
 
+  const handleLogout = async () => {
+    try {
+      await AsyncStorage.removeItem('refreshToken')
+
+      navigation.replace('Login')
+    } catch (error) {
+      console.error('Logout error:', error.message)
+    }
+  }
+
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* TOP */}
@@ -56,7 +72,7 @@ const ProfileScreen = ({navigation}) => {
           <Text style={styles.greeting}>Hi, Agus Setiawan</Text>
           <Text style={styles.manageProfile}>Kelola Profil Anda</Text>
         </View>
-        <NotificationIcon />
+        <NotificationIcon onPress={onPressNotif} />
       </View>
 
       {/* HEADER */}
@@ -92,6 +108,15 @@ const ProfileScreen = ({navigation}) => {
           onPress={() => navigation.navigate('PostJob')}
         />
         <ItemProfile
+          IconComponent={IcCreditCard}
+          text={'Rekening Anda'}
+          onPress={() =>
+            navigation.navigate('AccountNumber', {
+              sectionTitle: 'Rekening Anda',
+            })
+          }
+        />
+        <ItemProfile
           IconComponent={IcNotification}
           text={'Notifikasi'}
           onPress={() => {
@@ -106,22 +131,13 @@ const ProfileScreen = ({navigation}) => {
           text={'Pusat Bantuan'}
           onPress={sendWhatsApp}
         />
-        <ItemProfile
-          IconComponent={IcLanguage}
-          text={'Bahasa (Mendatang)'}
-          onPress={() => navigation.navigate('')}
-        />
       </View>
 
       {/* ACTION LIST */}
       <View style={styles.list}>
         <Text style={styles.listName}>AKSI</Text>
-        <ItemProfile
-          IconComponent={IcDeleteAccount}
-          text={'Hapus Akun'}
-          onPress={() => navigation.navigate('')}
-        />
-        <TouchableOpacity style={styles.logout}>
+
+        <TouchableOpacity style={styles.logout} onPress={handleLogout}>
           <IcLogout />
           <Text style={styles.textLogout}>Keluar</Text>
         </TouchableOpacity>

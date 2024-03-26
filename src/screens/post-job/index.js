@@ -14,6 +14,10 @@ import {IcNoneFiles} from '../../assets/icons'
 const PostJobScreen = ({navigation}) => {
   const [isContentExist, setIsContentExist] = useState(false)
 
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
   return (
     <View style={styles.mainBody}>
       {/* HEADER */}
@@ -21,6 +25,7 @@ const PostJobScreen = ({navigation}) => {
         onPressBack={() => navigation.goBack('Profile')}
         sectionTitle='Unggahan Pekerjaan'
         customStyle={{paddingHorizontal: 16}}
+        onPressNotif={onPressNotif}
       />
 
       {/* CONTENTS */}

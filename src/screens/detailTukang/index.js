@@ -53,7 +53,7 @@ const DetailTukang = props => {
       })
       setIsPhaseTwo(true)
     } else {
-      navigation.goBack()
+      navigation.navigate('Home')
     }
   }
 
@@ -83,6 +83,10 @@ const DetailTukang = props => {
       price: '150K - 500K',
     },
   ]
+
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
 
   const RenderSkillItem = ({item, index}) => {
     return (
@@ -197,7 +201,12 @@ const DetailTukang = props => {
   return (
     <View style={styles.containerMain}>
       {/* HEADER */}
-      <HeaderSecondary onPressBack={OnPressBack} sectionTitle={sectionTitle} />
+      <HeaderSecondary
+        onPressBack={OnPressBack}
+        sectionTitle={sectionTitle}
+        customStyle={{paddingHorizontal: 16}}
+        onPressNotif={onPressNotif}
+      />
 
       {/* CONTENTS */}
       <ScrollView style={styles.mainBody} showsVerticalScrollIndicator={false}>
@@ -207,6 +216,8 @@ const DetailTukang = props => {
       {/* BUTTONS */}
       <View style={styles.footer}>
         <ButtonMain
+          disabled={true}
+          isDisabled={true}
           text='Tawarkan Pekerjaan'
           onPress={() => navigation.navigate('TawaranJob')}
         />

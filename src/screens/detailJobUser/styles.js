@@ -7,7 +7,7 @@ export default StyleSheet.create({
     flex: 1,
   },
   content: {
-    paddingTop: 2,
+    paddingVertical: 10,
   },
   imgJob: {
     width: 400,
@@ -25,20 +25,28 @@ export default StyleSheet.create({
   },
   job: {
     flexDirection: 'row',
-    width: '100%',
     gap: 15,
     justifyContent: 'center',
     paddingTop: 20,
+    paddingHorizontal: 16,
   },
-  contentTitle: {
+  contentTitle: status => ({
     fontFamily: Fonts.MEDIUM,
-    fontSize: FontSize.dp_18,
-    color: Color.BLACK,
-    paddingBottom: 10,
-  },
+    fontSize: status ? FontSize.dp_16 : FontSize.dp_18,
+    color: status ? Color.PRIMARY : Color.BLACK,
+    paddingBottom: status ? null : 10,
+  }),
   contentDesc: {
     fontFamily: Fonts.REGULAR,
     fontSize: FontSize.dp_14,
     color: Color.GREYONE,
   },
+  linkBox: {
+    backgroundColor: Color.WHITE,
+    borderRadius: 8,
+    paddingVertical: 12,
+    paddingHorizontal: 8,
+    gap: 4,
+  },
+  linkHeader: {flexDirection: 'row', alignItems: 'center', gap: 4},
 })

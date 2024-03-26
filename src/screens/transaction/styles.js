@@ -5,7 +5,6 @@ export default StyleSheet.create({
   mainBody: {
     backgroundColor: Color.BGSCREEN,
     flex: 1,
-    paddingTop: 20,
   },
   content: {
     justifyContent: 'space-between',
@@ -66,5 +65,11 @@ export default StyleSheet.create({
     paddingTop: 15,
     paddingHorizontal: 16,
     elevation: 5,
+  },
+  previewImg: {
+    width: '100%',
+    height: 200,
+    borderRadius: 14,
+    marginTop: 14,
   },
 })

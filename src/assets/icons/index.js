@@ -5,6 +5,8 @@ import IcMailBox from './ic-mailbox.svg'
 import IcChevronLeft from './ic-chevron-left.svg'
 import IcLock from './ic-lock.svg'
 import IcLockUnlock from './ic-lock-unlock.svg'
+import IcUserLogin from './ic-user-login.svg'
+import IcPhoneComing from './ic-phone-coming.svg'
 
 //home: header
 import IcAlarmBell from './ic-alarmbell.svg'
@@ -55,6 +57,7 @@ import IcPrice from './ic-price.svg'
 import IcHourglass from './ic-hourglass.svg'
 import IcCheckCircle from './ic-check-circle.svg'
 import IcDotGrey from './ic-dot-grey.svg'
+import IcArrowRight from './ic-arrow-right.svg'
 
 //profile
 import IcUser from './ic-user.svg'
@@ -68,18 +71,28 @@ import IcChevronRight from './ic-chevron-right.svg'
 import IcEdit from './ic-edit.svg'
 import IcRisk from './ic-risk.svg'
 import IcFilePlus from './ic-file-plus.svg'
-import IcAddImg from './ic-add-img.svg'
+import IcWallet from './ic-wallet.svg'
+import IcCheckVerified from './ic-check-verified.svg'
 import IcPlus from './ic-plus.svg'
+import IcAddImage from './ic-add-img.svg'
 import IcNoneFiles from './ic-none-files.svg'
+import IcAddImg from './ic-add-img.svg'
 
 // detail tukang
 import IcLocationBig from './ic-location-big.svg'
+import IcSaveWhite from './ic-save-white.svg'
+import IcSaveFilledWhite from './ic-save-filled-white.svg'
 
 // others
 import IcBCA from './ic-bca.svg'
 import IcOVO from './ic-ovo.svg'
 import IcGopay from './ic-gopay.svg'
 import IcAddFiles from './ic-add-files.svg'
+import IcChevronDown from './ic-chevron-down.svg'
+import IcChevronUp from './ic-chevron-up.svg'
+import IcCreditCard from './ic-credit-card.svg'
+import IcNoneRekening from './ic-none-rekening.svg'
+import IcCloseX from './ic-close-x.svg'
 
 export {
   IcMailBox,
@@ -132,11 +145,24 @@ export {
   IcEdit,
   IcRisk,
   IcFilePlus,
-  IcAddImg,
+  IcCheckVerified,
+  IcWallet,
   IcPlus,
+  IcAddImage,
   IcNoneFiles,
   IcBCA,
   IcOVO,
   IcGopay,
   IcAddFiles,
+  IcChevronDown,
+  IcChevronUp,
+  IcCreditCard,
+  IcNoneRekening,
+  IcCloseX,
+  IcAddImg,
+  IcArrowRight,
+  IcSaveWhite,
+  IcSaveFilledWhite,
+  IcUserLogin,
+  IcPhoneComing,
 }

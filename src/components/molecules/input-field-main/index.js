@@ -1,7 +1,7 @@
 import {StyleSheet, Text, View, TextInput, TouchableOpacity} from 'react-native'
 import React from 'react'
 import {FontSize, Fonts, Color} from '../../../constants'
-import {IcPlus} from '../../../assets/icons'
+import {IcChevronDown, IcPlus} from '../../../assets/icons'
 
 const InputFieldMain = ({
   isPhaseTwo,
@@ -41,12 +41,6 @@ const InputFieldMain = ({
             value={value}
             onChangeText={onChangeText}
           />
-          {showAddContainer && (
-            <TouchableOpacity style={styles.containerAdd} onPress={onPressAdd}>
-              <IcPlus />
-              <Text style={styles.textAdd}>Tambah List</Text>
-            </TouchableOpacity>
-          )}
         </View>
       )}
 
@@ -78,12 +72,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderWidth: 1,
-    borderColor: Color.RED,
+    borderColor: Color.ERROR,
   },
   errorMsg: {
     fontSize: FontSize.dp_12,
     fontFamily: Fonts.REGULAR,
-    color: Color.RED,
+    color: Color.ERROR,
     marginTop: 5,
   },
   containerAdd: {

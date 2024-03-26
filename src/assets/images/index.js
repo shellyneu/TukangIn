@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+import ImgSplashScreen from './img-splashScreen'
 import ImgSplash from './img-splash.png'
 import ImgUser from './img-user.png'
 
@@ -24,6 +25,7 @@ import ImgSearchCraftmanTwo from './img-search-craftman-two.png'
 import ImgProfileOne from './img-profile-one.png'
 import ImgProfileTwo from './img-profile-two.png'
 import ImgProfileThree from './img-profile-two.png'
+import ImgTesti from './img-testi.png'
 
 //detail skill
 import ImgSkillOne from './img-skill-one.png'
@@ -55,4 +57,6 @@ export {
   ImgKeran,
   ImgKeramik,
   ImgPostJob,
+  ImgTesti,
+  ImgSplashScreen,
 }

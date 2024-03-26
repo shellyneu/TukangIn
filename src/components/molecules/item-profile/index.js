@@ -10,9 +10,9 @@ const ItemProfile = ({onPress, IconComponent, text}) => {
         {IconComponent && <IconComponent width={24} height={24} />}
         <Text style={styles.text}>{text}</Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <View>
         <IcChevronRight width={24} height={24} />
-      </TouchableOpacity>
+      </View>
     </View>
   )
 }

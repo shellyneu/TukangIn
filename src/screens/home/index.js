@@ -23,6 +23,7 @@ import {
 import {
   ImgCraftmanOne,
   ImgCraftmanTwo,
+  ImgDetailJob,
   ImgKeramik,
   ImgKeran,
   ImgProfileOne,
@@ -50,15 +51,15 @@ const HomeScreen = ({navigation}) => {
       id: 1,
       nama: 'Andika Darojat',
       skillCount: 12,
-      location: 'Purwokerto',
+      location: 'Karanglewas',
       rate: 4.9,
       img: ImgCraftmanOne,
     },
     {
       id: 2,
-      nama: 'Bambang',
+      nama: 'Bambang Sudyatmoko',
       skillCount: 10,
-      location: 'Purwokerto',
+      location: 'Ledug',
       rate: 4.7,
       img: ImgCraftmanTwo,
     },
@@ -66,7 +67,7 @@ const HomeScreen = ({navigation}) => {
       id: 3,
       nama: 'Ruslan',
       skillCount: 8,
-      location: 'Purwokerto',
+      location: 'Tanjung',
       rate: 4.8,
       img: ImgCraftmanTwo,
     },
@@ -75,10 +76,10 @@ const HomeScreen = ({navigation}) => {
   const dataJob = [
     {
       id: 1,
-      img: ImgKeran,
-      jobTitle: 'Perbaikan Saluran Air',
-      location: 'Bojongsari, Kec. Kembaran',
-      price: '540.000',
+      img: ImgDetailJob,
+      jobTitle: 'Ahli Cat Kusen dan Pagar',
+      location: 'Karanglewas, Kec. Jatilawang',
+      price: '420.000',
       countSubmit: 61,
     },
     {
@@ -91,6 +92,16 @@ const HomeScreen = ({navigation}) => {
     },
   ]
 
+  const onPressNotif = () => {
+    navigation.navigate('Notification', {sectionTitle: 'Notifikasi'})
+  }
+
+  const onPressCardJob = () => {
+    navigation.navigate('DetailJob', {
+      sectionTitle: 'Detail Job',
+    })
+  }
+
   const renderSeparator = () => <View style={{width: 10, height: 10}} />
 
   const renderTukang = ({item}) => (
@@ -101,7 +112,9 @@ const HomeScreen = ({navigation}) => {
       location={item.location}
       rate={item.rate}
       onPress={() => {
-        navigation.navigate('DetailTukang')
+        navigation.navigate('DetailTukang', {
+          sectionTitle: 'Detail Tukang',
+        })
       }}
     />
   )
@@ -113,6 +126,8 @@ const HomeScreen = ({navigation}) => {
       location={item.location}
       price={item.price}
       countSubmit={item.countSubmit}
+      savePressed={savePressed}
+      onPressSave={() => setSavePressed(!savePressed)}
     />
   )
 
@@ -126,29 +141,77 @@ const HomeScreen = ({navigation}) => {
             <Text style={styles.welcomeText}>Selamat Datang</Text>
             <Text style={styles.userName}>Agus Setiawan</Text>
           </View>
-          <NotificationIcon />
+          <NotificationIcon onPress={onPressNotif} />
         </View>
-
-        {/* SEARCH */}
-        {/* <SearchBar placeholder={'Cari pekerjaan, tukang...'} /> */}
 
         {/* FEATURE LIST */}
 
         <View style={styles.featureBox}>
-          <FeatureIcon icon={<IcCompassTwo />} label={'Pasang'} />
-          <FeatureIcon icon={<IcTearDrop />} label={'Saluran'} />
-          <FeatureIcon icon={<IcPalette />} label={'Pengecat'} />
-          <FeatureIcon icon={<IcGridLayout />} label={'Lainnya'} />
+          <FeatureIcon
+            icon={<IcCompassTwo />}
+            label={'Pasang'}
+            onPress={() =>
+              navigation.navigate('DetailCategory', {
+                sectionTitle: 'Pasang',
+              })
+            }
+          />
+          <FeatureIcon
+            icon={<IcTearDrop />}
+            label={'Saluran'}
+            onPress={() =>
+              navigation.navigate('DetailCategory', {
+                sectionTitle: 'Saluran',
+              })
+            }
+          />
+          <FeatureIcon
+            icon={<IcPalette />}
+            label={'Pengecat'}
+            onPress={() =>
+              navigation.navigate('DetailCategory', {
+                sectionTitle: 'Pengecat',
+              })
+            }
+          />
+          <FeatureIcon
+            icon={<IcGridLayout />}
+            label={'Lainnya'}
+            onPress={() =>
+              navigation.navigate('DetailCategory', {
+                sectionTitle: 'Lainnya',
+              })
+            }
+          />
         </View>
 
         {/* TUKANG */}
         <View style={{marginBottom: 20}}>
           <View style={styles.sectionTitle}>
             <Text style={styles.titleMain}>Tukang Terbaik</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('ListTukang', {
+                  sectionTitle: 'Semua Tukang',
+                })
+              }>
               <Text style={styles.others}>Lainnya</Text>
             </TouchableOpacity>
           </View>
+          {/* {data.map((item) => {
+            return (
+              <CardTukang
+              imgSource={item.img}
+              name={item.nama}
+              skillCount={item.skillCount}
+              location={item.location}
+              rate={item.rate}
+              onPress={() => {
+                navigation.navigate('DetailTukang')
+              }}
+              />
+            )
+          })} */}
           <FlatList
             data={dataTukang}
             horizontal
@@ -163,26 +226,37 @@ const HomeScreen = ({navigation}) => {
         <View style={{marginBottom: 20}}>
           <View style={styles.sectionTitle}>
             <Text style={styles.titleMain}>Pekerjaan</Text>
-            <TouchableOpacity>
+            <TouchableOpacity
+              onPress={() =>
+                navigation.navigate('ListJob', {
+                  sectionTitle: 'Semua Pekerjaan',
+                })
+              }>
               <Text style={styles.others}>Lainnya</Text>
             </TouchableOpacity>
           </View>
           <View>
-            <TabBar
-              tabs={[
-                {title: 'Semua', onPress: () => setActiveTab(1)},
-                {title: 'Lokasi', onPress: () => setActiveTab(2)},
-                {title: 'Terakhir', onPress: () => setActiveTab(3)},
-              ]}
-              activeTab={activeTab}
-            />
-            <FlatList
+            {dataJob.map(item => {
+              return (
+                <CardJob
+                  imgSource={item.img}
+                  jobTitle={item.jobTitle}
+                  location={item.location}
+                  price={item.price}
+                  countSubmit={item.countSubmit}
+                  savePressed={savePressed}
+                  onPressSave={() => setSavePressed(!savePressed)}
+                  onPress={onPressCardJob}
+                />
+              )
+            })}
+            {/* <FlatList
               data={dataJob}
               keyExtractor={item => item._id}
               renderItem={renderJob}
               ItemSeparatorComponent={renderSeparator}
               showsHorizontalScrollIndicator={false}
-            />
+            /> */}
           </View>
         </View>
       </ScrollView>
